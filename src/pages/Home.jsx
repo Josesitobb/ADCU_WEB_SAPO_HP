@@ -3,7 +3,6 @@ import Navbar_Home from '../components/Navbar_Home';
 
 import Formulario from '../components/Formulario';
 
-import Footer from '../components/Footer';
 
 
 
@@ -11,10 +10,9 @@ import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <div>
+    <div style={{backgroundColor:"#fdf5f7"}}>
       <Navbar_Home/>
       <Formulario/>
-      <Footer />
     </div>
   )
 }
