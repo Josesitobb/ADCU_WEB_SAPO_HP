@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Button, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Lateral_Nombres  from "./Lateral_Nombres";
+import Lateral_Nombres from "./Lateral_Nombres";
 
 export default function MenuHamburguesa() {
   const [show, setShow] = useState(false);
@@ -28,11 +28,11 @@ export default function MenuHamburguesa() {
         </Button>
 
 
-      
+
         <Navbar.Brand as={Link} to="/"></Navbar.Brand>
         <Nav className="ms-auto">
           {/* Otros elementos del Nav si los necesitas */}
-        
+
         </Nav>
       </Navbar>
 
@@ -46,17 +46,18 @@ export default function MenuHamburguesa() {
           <Offcanvas.Title>ADCU</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-        <Lateral_Nombres Nombre = "Usuario" Link="/AdminUsuarios" />
-        <Lateral_Nombres Nombre = "Gestion documental" />
-        <Lateral_Nombres Nombre = "Control de Accesos y Seguridad" />
-        <Lateral_Nombres Nombre = "Colaboración" />
-        <Lateral_Nombres Nombre = "Flujos de Trabajo" />
-        <Lateral_Nombres Nombre = "Firma Electrónica" />
-        <Lateral_Nombres Nombre = "Búsqueda y Recuperación" />
-        <Lateral_Nombres Nombre = "Integración con Otras Herramientas" />
-        <Lateral_Nombres Nombre = "Almacenamiento en la Nube" />
-        <Lateral_Nombres Nombre = "Archivado y Retención" />
-        <Lateral_Nombres Nombre = "Reportes" />
+          <Lateral_Nombres Nombre="Usuario" Link="/AdminUsuarios" />
+          <Lateral_Nombres Nombre="Gestion documental" />
+          <Lateral_Nombres Nombre="Control de Accesos y Seguridad" />
+          <Lateral_Nombres Nombre="Colaboración" />
+          <Lateral_Nombres Nombre="Flujos de Trabajo" />
+          <Lateral_Nombres Nombre="Firma Electrónica" />
+          <Lateral_Nombres Nombre="Búsqueda y Recuperación" />
+          <Lateral_Nombres Nombre="Integración con Otras Herramientas" />
+          <Lateral_Nombres Nombre="Almacenamiento en la Nube" />
+          <Lateral_Nombres Nombre="Archivado y Retención" />
+          <Lateral_Nombres Nombre="Reportes" />
+          <Lateral_Nombres Nombre="Pdf" Link="/AdminPdf" />
         </Offcanvas.Body>
       </Offcanvas>
     </>
