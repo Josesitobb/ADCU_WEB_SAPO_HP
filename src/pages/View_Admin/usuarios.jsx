@@ -17,6 +17,7 @@ const UsuariosN = [
     Correo: "PedroSanchez@gmail.com",
     Rol: "Administrador",
   },
+  
 ];
 
 // Campos del modal
@@ -113,6 +114,7 @@ export default function Usuarios() {
                   <a href="">Eliminar</a>
                   <br />
                   <a href="">Editar</a>
+                  
                 </td>
               </tr>
             ))}

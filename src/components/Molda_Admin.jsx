@@ -2,12 +2,19 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import Pdf_Admin from '../components/Pdf_Admin';
 
-export default function Molda_Admin({ NombreBoton, Icono, campos = [] }) {
+
+
+
+
+export default function Molda_Admin({ NombreBoton, Icono, campos = [],pdf }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
   //   console.log("Campos recibidos en Molda_Admin:", campos);
   return (
     <>
@@ -20,7 +27,7 @@ export default function Molda_Admin({ NombreBoton, Icono, campos = [] }) {
         {NombreBoton}
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose}  size={pdf && "xl"} >
         <Modal.Header closeButton>
           <Modal.Title> {NombreBoton}</Modal.Title>
         </Modal.Header>
@@ -36,6 +43,9 @@ export default function Molda_Admin({ NombreBoton, Icono, campos = [] }) {
               </Form.Group>
             ))}
           </Form>
+          
+
+          {pdf && <Pdf_Admin Link=  "/assets/Administración_de_cuentas_de_cobro.pdf" />}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

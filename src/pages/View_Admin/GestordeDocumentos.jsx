@@ -3,6 +3,7 @@ import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
 import Table from "react-bootstrap/Table";
 import Molda_Admin from "../../components/Molda_Admin";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const documentos = [
   {
@@ -64,6 +65,12 @@ const CamposInputsDocumentos = [
   },
 ];
 
+// CAMPOS DE FILTRO
+
+  
+
+
+
 export default function GestordeDocumentos() {
   return (
     <div>
@@ -71,10 +78,25 @@ export default function GestordeDocumentos() {
       <h2 className="text-center my-4">Gestor de documentos</h2>
 
       <div style={containerStyle}>
-        <Molda_Admin
-          NombreBoton="Agregar Documento"
-          campos={CamposInputsDocumentos}
-        />
+     
+  
+<div style={filterContainerStyle}>
+  <Molda_Admin
+    NombreBoton="Agregar Documento"
+    campos={CamposInputsDocumentos}
+  />
+  <div style={searchContainerStyle}>
+    <i className="bi bi-funnel"></i>
+    <input 
+      style={searchInputStyle} 
+      type="text" 
+      placeholder="Escribe aquí..." 
+    />
+  </div>
+</div>
+
+
+  
         <Table striped="columns" style={tableStyle}>
           <thead>
             <tr>
@@ -99,9 +121,21 @@ export default function GestordeDocumentos() {
                 <td>{doc.DocumentoFecha}</td>
                 <td>{doc.DocumentoEstado}</td>
                 <td>
-                  <a href="">Eliminar</a>
+
+                  
+                  <i class="bi bi-trash"> <a href="">Eliminar</a></i>
+
                   <br />
-                  <a href="">Editar</a>
+                  <i class="bi bi-pencil-square">  <a href="">Editar</a></i>
+
+                  <br />
+                
+                  <Molda_Admin
+                    NombreBoton="Visualizar"
+                    pdf
+                    Icono={  <i class="bi bi-search"></i>}
+                  />
+
                 </td>
               </tr>
             ))}
@@ -126,4 +160,27 @@ const containerStyle = {
   width: "80%",
   margin: "auto",
   marginTop: "10%",
+};
+const filterContainerStyle = {
+  display: "flex",
+  justifyContent: "flex-end", // Alinea los elementos a la derecha
+  alignItems: "center",
+  width: "100%",
+  gap: "10px", // Espaciado entre el botón y el input
+  marginBottom: "20px", // Espaciado inferior antes de la tabla
+};
+
+const searchContainerStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "5px",
+  border: "1px solid #ccc",
+  borderRadius: "10px",
+  padding: "8px",
+};
+
+const searchInputStyle = {
+  border: "none",
+  outline: "none",
+  width: "200px",
 };
