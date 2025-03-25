@@ -77,11 +77,6 @@ export default function Molda_Admin(props) {
                             </Form.Select>
 
                         </Form.Group>
-
-
-
-
-
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>

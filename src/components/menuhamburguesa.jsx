@@ -1,12 +1,45 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Button, Offcanvas } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  Button,
+  Offcanvas,
+  ListGroup,
+  Collapse,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Lateral_Nombres from "./Lateral_Nombres";
 
 export default function MenuHamburguesa() {
   const [show, setShow] = useState(false);
+  const [openMenus, setOpenMenus] = useState({}); // Estado para rastrear qué menús están abiertos
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // Función para alternar la apertura/cierre de submenús
+  const toggleMenu = (menu) => {
+    setOpenMenus((prev) => ({
+      ...prev,
+      [menu]: !prev[menu],
+    }));
+  };
+
+  const icon_Lateral = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-chevron-compact-down"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"
+      />
+    </svg>
+  );
 
   return (
     <>
@@ -17,23 +50,18 @@ export default function MenuHamburguesa() {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-list"
+            class="bi bi-chevron-compact-down"
             viewBox="0 0 16 16"
           >
             <path
               fill-rule="evenodd"
-              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+              d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"
             />
           </svg>
         </Button>
 
-
-
         <Navbar.Brand as={Link} to="/"></Navbar.Brand>
-        <Nav className="ms-auto">
-          {/* Otros elementos del Nav si los necesitas */}
-
-        </Nav>
+        <Nav className="ms-auto"></Nav>
       </Navbar>
 
       <Offcanvas
@@ -46,11 +74,68 @@ export default function MenuHamburguesa() {
           <Offcanvas.Title>ADCU</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Lateral_Nombres Nombre="Usuario" Link="/AdminUsuarios" />
-          <Lateral_Nombres Nombre="Gestion documental" />
-          <Lateral_Nombres Nombre="Control de Accesos y Seguridad" />
+          {/* ----------------------------------------------------------------- */}
+          {/* USUARIOS  */}
+          <ListGroup.Item action onClick={() => toggleMenu("usuarios")}>
+            Usuarios {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["usuarios"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Crear usuarios"
+                  Link="/AdminUsuarios"
+                />
+              </ListGroup>
+
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Usuarios detalles"
+                  Link="/AdminUsuarioDeTalles"
+                />
+              </ListGroup>
+            </div>
+          </Collapse>
+          <hr />
+
+          {/* ----------------------------------------------------------------- */}
+          {/* GESTION DOCUMENTAL  */}
+
+          <ListGroup.Item
+            action
+            onClick={() => toggleMenu("GestionDocumental")}
+          >
+            Gestion documental {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["GestionDocumental"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres Nombre="Gestion documental" />
+              </ListGroup>
+            </div>
+          </Collapse>
+          <hr />
+          {/* ----------------------------------------------------------------- */}
+          {/* Control de Accesos y Seguridad  */}
+
+          <ListGroup.Item
+            action
+            onClick={() => toggleMenu("ControldeAccesosySeguridad")}
+          >
+            Control de Accesos y Seguridad {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["ControldeAccesosySeguridad"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres Nombre="Control de Accesos y Seguridad" />
+              </ListGroup>
+            </div>
+          </Collapse>
+          {/* ----------------------------------------------------------------- */}
+
           <Lateral_Nombres Nombre="Colaboración" />
-          <Lateral_Nombres Nombre="Flujos de Trabajo" />
+          <Lateral_Nombres Nombre="Flujo de trabajo" />
+
           <Lateral_Nombres Nombre="Firma Electrónica" />
           <Lateral_Nombres Nombre="Búsqueda y Recuperación" />
           <Lateral_Nombres Nombre="Integración con Otras Herramientas" />
@@ -60,6 +145,20 @@ export default function MenuHamburguesa() {
           <Lateral_Nombres Nombre="Pdf" Link="/AdminPdf" />
         </Offcanvas.Body>
       </Offcanvas>
+
+      {/* <DropdownButton
+        as={ButtonGroup}
+        id="dropdown-button-drop-end"
+        drop="end" // Se abre a la derecha
+        variant="secondary"
+        title="USUARIOS"
+      >
+        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+        <Dropdown.Divider />
+        <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+      </DropdownButton> */}
     </>
   );
 }
