@@ -1,10 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Index_Admin from "./pages/View_Admin/Index_Admin";
 import Usuarios from "./pages/View_Admin/Usuarios";
 import Pdf from "./pages/View_Admin/Pdf";
 import UsuariosDetalles from "./pages/View_Admin/UsuariosDetalles";
+import GestordeDocumentos from "./pages/View_Admin/GestordeDocumentos";
+import IntercambiodeDocumentos from "./pages/View_Admin/IntercambiodeDocumentos";
+import RecuperacióndeArchivos from "./pages/View_Admin/RecuperacióndeArchivos";
+
 
 
 
@@ -15,10 +19,14 @@ const App = () => {
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route path="/AdminHome" element={<Index_Admin />} />
-        <Route path="/AdminUsuarios" element={<Usuarios />} />
         <Route path="/AdminPdf" element={<Pdf />} />
+        {/* Usuarios */}
+        <Route path="/AdminUsuarios" element={<Usuarios />} />
         <Route path="/AdminUsuarioDetalles" element={<UsuariosDetalles />} />
-
+        {/* Gestion documental */}
+        <Route path="/GestorDeDocumentos" element={<GestordeDocumentos />} />
+        <Route path="/RecuperacionDeArchivos" element={<RecuperacióndeArchivos />} />
+        <Route path="/IntercambioDeDocumentos" element={<IntercambiodeDocumentos />} />
 
       </Routes>
     </BrowserRouter>

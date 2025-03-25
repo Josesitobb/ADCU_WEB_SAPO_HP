@@ -4,6 +4,75 @@ import Footer from "../../components/Footer";
 import Table from "react-bootstrap/Table";
 import Molda_Admin from "../../components/Molda_Admin";
 
+// Campos de la tabla
+const UsuariosN = [
+  {
+    id: 1,
+    Nombre: "Pedro ",
+    Apellido: "sanchez",
+    Contraseña: "Contraseña",
+    NumeroDeCedula: 1908384,
+    Estado: "Activo",
+    NumeroDeContrato: 2024_56,
+    Correo: "PedroSanchez@gmail.com",
+    Rol: "Administrador",
+  },
+];
+
+// Campos del modal
+
+const CamposInputs = [
+  {
+    label: "Nombre",
+    name: "nombre",
+    type: "text",
+    placeholder: "Ingrese su nombre",
+  },
+  {
+    label: "Apellido",
+    name: "apellido",
+    type: "text",
+    placeholder: "Ingrese su apellido",
+  },
+  {
+    label: "Contraseña",
+    name: "contraseña",
+    type: "password",
+    placeholder: "Ingrese su contraseña",
+  },
+  {
+    label: "Número de Cédula",
+    name: "numeroDeCedula",
+    type: "number",
+    placeholder: "Ingrese su número de cédula",
+  },
+  {
+    label: "Estado",
+    name: "estado",
+    type: "text",
+    placeholder: "Ingrese el estado (Activo/Inactivo)",
+  },
+  {
+    label: "Número de Contrato",
+    name: "numeroDeContrato",
+    type: "number",
+    placeholder: "Ingrese el número de contrato",
+  },
+  {
+    label: "Correo",
+    name: "correo",
+    type: "email",
+    placeholder: "Ingrese su correo",
+  },
+  {
+    label: "Rol",
+    name: "rol",
+    type: "text",
+    placeholder: "Ingrese el rol (Administrador, Usuario, etc.)",
+  },
+];
+
+// -------------------------------------------------------------
 export default function Usuarios() {
   return (
     <div>
@@ -12,22 +81,7 @@ export default function Usuarios() {
 
       {/* Contenedor para mantener Molda_Admin encima de la tabla */}
       <div style={containerStyle}>
-        <Molda_Admin
-          NombreBoton="Agregar Usuario"
-          Icono={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="20"
-              fill="currentColor"
-              className="bi bi-person-fill-add"
-              viewBox="0 0 16 16"
-            >
-              <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-              <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4" />
-            </svg>
-          }
-        />
+        <Molda_Admin NombreBoton="Agregar Usuario" campos={CamposInputs} />
         <Table striped="columns" style={tableStyle}>
           <thead>
             <tr>
@@ -44,22 +98,24 @@ export default function Usuarios() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Maria</td>
-              <td>Gonzales</td>
-              <td>123456789</td>
-              <td>123456789</td>
-              <td>Activa</td>
-              <td>859788789</td>
-              <td>Maria@gmail.com</td>
-              <td>Administrador</td>
-              <td>
-                <a href="">Eliminar</a>
-                <br />
-                <a href="">Editar</a>
-              </td>
-            </tr>
+            {UsuariosN.map((Usu, index) => (
+              <tr>
+                <td>{index + 1}</td>
+                <td>{Usu.Nombre}</td>
+                <td>{Usu.Apellido}</td>
+                <td>{Usu.Contraseña}</td>
+                <td>{Usu.NumeroDeCedula}</td>
+                <td>{Usu.Estado}</td>
+                <td>{Usu.NumeroDeContrato}</td>
+                <td>{Usu.Correo}</td>
+                <td>{Usu.Rol}</td>
+                <td>
+                  <a href="">Eliminar</a>
+                  <br />
+                  <a href="">Editar</a>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </div>

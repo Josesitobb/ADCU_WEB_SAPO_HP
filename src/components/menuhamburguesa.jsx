@@ -99,7 +99,7 @@ export default function MenuHamburguesa() {
           <hr />
 
           {/* ----------------------------------------------------------------- */}
-          {/* GESTION DOCUMENTAL  */}
+          {/* Gestion documental  */}
 
           <ListGroup.Item
             action
@@ -110,7 +110,18 @@ export default function MenuHamburguesa() {
           <Collapse in={openMenus["GestionDocumental"]}>
             <div className="ms-3">
               <ListGroup>
-                <Lateral_Nombres Nombre="Gestion documental" />
+                <Lateral_Nombres
+                  Nombre="Gestor de documentos"
+                  Link="/GestorDeDocumentos"
+                />
+                <Lateral_Nombres
+                  Nombre="Recuperacion de archivos"
+                  Link="/RecuperacionDeArchivos"
+                />
+                <Lateral_Nombres
+                  Nombre="Intercambio de documentos"
+                  Link="/IntercambioDeDocumentos"
+                />
               </ListGroup>
             </div>
           </Collapse>
