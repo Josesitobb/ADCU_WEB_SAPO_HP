@@ -145,9 +145,9 @@ export default function MenuHamburguesa() {
           {/* ----------------------------------------------------------------- */}
 
           <Lateral_Nombres Nombre="Colaboración" />
-          <Lateral_Nombres Nombre="Flujo de trabajo" />
+          <Lateral_Nombres Nombre="Flujo de trabajo" Link='/Flujosdedocumentos' />
 
-          <Lateral_Nombres Nombre="Firma Electrónica" />
+          <Lateral_Nombres Nombre="Firma Electrónica"/>
           <Lateral_Nombres Nombre="Búsqueda y Recuperación" />
           <Lateral_Nombres Nombre="Integración con Otras Herramientas" />
           <Lateral_Nombres Nombre="Almacenamiento en la Nube" />

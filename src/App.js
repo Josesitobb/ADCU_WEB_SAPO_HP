@@ -8,7 +8,7 @@ import UsuariosDetalles from "./pages/View_Admin/UsuariosDetalles";
 import GestordeDocumentos from "./pages/View_Admin/GestordeDocumentos";
 import IntercambiodeDocumentos from "./pages/View_Admin/IntercambiodeDocumentos";
 import RecuperacióndeArchivos from "./pages/View_Admin/RecuperacióndeArchivos";
-
+import Flujosdetrabajo from "./pages/View_Admin/Flujosdetrabajo";
 
 
 
@@ -26,7 +26,9 @@ const App = () => {
         {/* Gestion documental */}
         <Route path="/GestorDeDocumentos" element={<GestordeDocumentos />} />
         <Route path="/RecuperacionDeArchivos" element={<RecuperacióndeArchivos />} />
-        <Route path="/IntercambioDeDocumentos" element={<IntercambiodeDocumentos />} />
+        {/* intercambio de documentos */}
+        <Route path="/Flujosdedocumentos" element={<Flujosdetrabajo />} />
+
 
       </Routes>
     </BrowserRouter>

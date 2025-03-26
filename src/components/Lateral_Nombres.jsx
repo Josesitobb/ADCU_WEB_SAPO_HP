@@ -24,3 +24,4 @@ export default function Lateral_Nombres(props) {
     </div>
   );
 }
+  

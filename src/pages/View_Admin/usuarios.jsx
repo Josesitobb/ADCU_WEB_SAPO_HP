@@ -20,7 +20,8 @@ const UsuariosN = [
   
 ];
 
-// Campos del modal
+
+ // Campos del modal
 
 const CamposInputs = [
   {

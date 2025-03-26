@@ -4,10 +4,6 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Pdf_Admin from '../components/Pdf_Admin';
 
-
-
-
-
 export default function Molda_Admin({ NombreBoton, Icono, campos = [],pdf }) {
   const [show, setShow] = useState(false);
 
