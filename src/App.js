@@ -12,7 +12,6 @@ import Flujosdetrabajo from "./pages/View_Admin/Flujosdetrabajo";
 
 
 
-
 const App = () => {
   return (
     <BrowserRouter>
@@ -26,8 +25,9 @@ const App = () => {
         {/* Gestion documental */}
         <Route path="/GestorDeDocumentos" element={<GestordeDocumentos />} />
         <Route path="/RecuperacionDeArchivos" element={<RecuperacióndeArchivos />} />
+        <Route path="/RecuperacionDeArchivos" element={<RecuperacióndeArchivos />} />
         {/* intercambio de documentos */}
-        <Route path="/Flujosdedocumentos" element={<Flujosdetrabajo />} />
+        <Route path="/IntercambiodeDocumentos" element={<IntercambiodeDocumentos />} />
 
 
       </Routes>

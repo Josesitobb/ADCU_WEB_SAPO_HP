@@ -6,11 +6,9 @@ export default function IntercambiodeDocumentos() {
   return (
     <div>
       <Navbar_Admin />
-      <h2>IntercambiodeDocumentos</h2>
+      <h2>Intercambio de documentos</h2>
 
       <Footer />
     </div>
   );
 }
-
-
