@@ -17,12 +17,11 @@ const UsuariosN = [
     Correo: "PedroSanchez@gmail.com",
     Rol: "Administrador",
   },
-  
 ];
 
+// Campos del modal
 
- // Campos del modal
-
+// Modal de agregar usuario
 const CamposInputs = [
   {
     label: "Nombre",
@@ -74,16 +73,66 @@ const CamposInputs = [
   },
 ];
 
+// Modal para eliminar usuario
+
+const CamposInputsEliminar = [
+  {
+    label: "Nombre",
+    name: "nombre",
+    type: "text",
+    placeholder: "Nombre del usuario",
+    disabled: true, // Normalmente solo se muestra, no se edita
+  },
+  {
+    label: "Apellido",
+    name: "apellido",
+    type: "text",
+    placeholder: "Apellido del usuario",
+    disabled: true,
+  },
+  {
+    label: "Número de Cédula",
+    name: "numeroDeCedula",
+    type: "number",
+    placeholder: "Número de cédula",
+    disabled: true,
+  },
+];
+
 // -------------------------------------------------------------
 export default function Usuarios() {
   return (
     <div>
       <Navbar_Admin />
+
       <h1 className="text-center my-4">USUARIOS</h1>
 
-      {/* Contenedor para mantener Molda_Admin encima de la tabla */}
+      {/* Contenedor principal */}
       <div style={containerStyle}>
-        <Molda_Admin NombreBoton="Agregar Usuario" campos={CamposInputs} />
+        {/* Contenedor flex para buscar y botón */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "20px",
+          }}
+        >
+          {/* Buscador */}
+          <div style={searchContainerStyle}>
+            <i className="bi bi-funnel"></i>
+            <input
+              style={searchInputStyle}
+              type="text"
+              placeholder="Escribe aquí..."
+            />
+          </div>
+
+          {/* Botón agregar */}
+          <Molda_Admin NombreBoton="Agregar Usuario" campos={CamposInputs} />
+        </div>
+
+        {/* Tabla */}
         <Table striped="columns" style={tableStyle}>
           <thead>
             <tr>
@@ -101,7 +150,7 @@ export default function Usuarios() {
           </thead>
           <tbody>
             {UsuariosN.map((Usu, index) => (
-              <tr>
+              <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{Usu.Nombre}</td>
                 <td>{Usu.Apellido}</td>
@@ -112,10 +161,16 @@ export default function Usuarios() {
                 <td>{Usu.Correo}</td>
                 <td>{Usu.Rol}</td>
                 <td>
-                  <a href="">Eliminar</a>
+                  <Molda_Admin
+                    NombreBoton="Eliminar usuario"
+                    campos={CamposInputsEliminar}
+                  />
                   <br />
-                  <a href="">Editar</a>
-                  
+                  <br />
+                  <Molda_Admin
+                    NombreBoton="Editar usuario"
+                    campos={CamposInputs}
+                  />
                 </td>
               </tr>
             ))}
@@ -141,4 +196,19 @@ const containerStyle = {
 const tableStyle = {
   width: "100%", // La tabla ocupa todo el ancho del contenedor
   marginTop: "20px", // Espacio entre Molda_Admin y la tabla
+};
+
+const searchInputStyle = {
+  border: "none",
+  outline: "none",
+  width: "200px",
+};
+
+const searchContainerStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "5px",
+  border: "1px solid #ccc",
+  borderRadius: "10px",
+  padding: "8px",
 };

@@ -65,11 +65,36 @@ const CamposInputsDocumentos = [
   },
 ];
 
-// CAMPOS DE FILTRO
-
-  
-
-
+const CamposInputsEliminarDocumentos = [
+  {
+    label: "Nombre del Documento",
+    name: "nombreDocumento",
+    type: "text",
+    placeholder: "Nombre del documento",
+    disabled: true,
+  },
+  {
+    label: "Descripción",
+    name: "descripcion",
+    type: "text",
+    placeholder: "Descripción",
+    disabled: true,
+  },
+  {
+    label: "Propietario",
+    name: "propietario",
+    type: "text",
+    placeholder: "Propietario",
+    disabled: true,
+  },
+  {
+    label: "Fecha de Creación",
+    name: "fechaCreacion",
+    type: "date",
+    placeholder: "Fecha de creación",
+    disabled: true,
+  },
+];
 
 export default function GestordeDocumentos() {
   return (
@@ -78,25 +103,21 @@ export default function GestordeDocumentos() {
       <h2 className="text-center my-4">Gestor de documentos</h2>
 
       <div style={containerStyle}>
-     
-  
-<div style={filterContainerStyle}>
-  <Molda_Admin
-    NombreBoton="Agregar Documento"
-    campos={CamposInputsDocumentos}
-  />
-  <div style={searchContainerStyle}>
-    <i className="bi bi-funnel"></i>
-    <input 
-      style={searchInputStyle} 
-      type="text" 
-      placeholder="Escribe aquí..." 
-    />
-  </div>
-</div>
+        <div style={filterContainerStyle}>
+          <Molda_Admin
+            NombreBoton="Agregar Documento"
+            campos={CamposInputsDocumentos}
+          />
+          <div style={searchContainerStyle}>
+            <i className="bi bi-funnel"></i>
+            <input
+              style={searchInputStyle}
+              type="text"
+              placeholder="Escribe aquí..."
+            />
+          </div>
+        </div>
 
-
-  
         <Table striped="columns" style={tableStyle}>
           <thead>
             <tr>
@@ -121,21 +142,27 @@ export default function GestordeDocumentos() {
                 <td>{doc.DocumentoFecha}</td>
                 <td>{doc.DocumentoEstado}</td>
                 <td>
-
-                  
-                  <i class="bi bi-trash"> <a href="">Eliminar</a></i>
+                  <Molda_Admin
+                    NombreBoton="Eliminar"
+                    campos={CamposInputsEliminarDocumentos}
+                    Icono={<i class="bi bi-trash"></i>}
+                  />
 
                   <br />
-                  <i class="bi bi-pencil-square">  <a href="">Editar</a></i>
-
                   <br />
-                
+
+                  <Molda_Admin
+                    NombreBoton="Editar usuario"
+                    campos={CamposInputsDocumentos}
+                    Icono={<i class="bi bi-pencil-square"></i>}
+                  />
+                  <br />
+                  <br />
                   <Molda_Admin
                     NombreBoton="Visualizar"
                     pdf
-                    Icono={  <i class="bi bi-search"></i>}
+                    Icono={<i class="bi bi-search"></i>}
                   />
-
                 </td>
               </tr>
             ))}

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
 import Table from "react-bootstrap/Table";
+import Molda_Admin from "../../components/Molda_Admin";
 const archivosRecuperacion = [
   {
     id: 1,
@@ -23,20 +24,95 @@ const archivosRecuperacion = [
   },
 ];
 
-const tableStyle = {
-  width: "100%", // La tabla ocupa todo el ancho del contenedor
-  marginTop: "20px",
-};
+const CamposInputsRecuperarArchivo = [
+  {
+    label: "Nombre del Archivo",
+    name: "nombreArchivo",
+    type: "text",
+    placeholder: "Nombre del archivo",
+    disabled: true,
+  },
+  {
+    label: "Categoría",
+    name: "categoria",
+    type: "text",
+    placeholder: "Categoría del archivo",
+    disabled: true,
+  },
+  {
+    label: "Propietario",
+    name: "propietario",
+    type: "text",
+    placeholder: "Propietario del archivo",
+    disabled: true,
+  },
+  {
+    label: "Fecha de Eliminación",
+    name: "fechaEliminacion",
+    type: "date",
+    placeholder: "Fecha de eliminación",
+    disabled: true,
+  },
+  {
+    label: "Eliminado Por",
+    name: "eliminadoPor",
+    type: "text",
+    placeholder: "Usuario que eliminó",
+    disabled: true,
+  },
+  {
+    label: "Estado Actual",
+    name: "estado",
+    type: "text",
+    placeholder: "Estado",
+    disabled: true,
+  },
+  {
+    label: "Confirmar recuperación",
+    name: "confirmarRecuperacion",
+    type: "checkbox",
+    placeholder: "",
+  },
+];
 
-// Estilos
-const containerStyle = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  width: "80%",
-  margin: "auto",
-  marginTop: "10%",
-};
+const CamposInputsFiltroRecuperarArchivo = [
+  {
+    label: "Nombre del Archivo",
+    name: "nombreArchivo",
+    type: "text",
+    placeholder: "Ingrese el nombre del archivo",
+  },
+  {
+    label: "Categoría",
+    name: "categoria",
+    type: "text",
+    placeholder: "Ingrese la categoría",
+  },
+  {
+    label: "Propietario",
+    name: "propietario",
+    type: "text",
+    placeholder: "Ingrese el propietario",
+  },
+  {
+    label: "Desde (Fecha de Eliminación)",
+    name: "fechaEliminacionDesde",
+    type: "date",
+    placeholder: "",
+  },
+  {
+    label: "Hasta (Fecha de Eliminación)",
+    name: "fechaEliminacionHasta",
+    type: "date",
+    placeholder: "",
+  },
+  {
+    label: "Estado",
+    name: "estado",
+    type: "text",
+    placeholder: "Ingrese el estado (Desactivado, Eliminado, etc.)",
+  },
+];
 
 export default function RecuperacióndeArchivos() {
   return (
@@ -45,10 +121,12 @@ export default function RecuperacióndeArchivos() {
       <h2 className="text-center my-4">Recuperacion de archivos</h2>
 
       <div style={containerStyle}>
-        {/* <Molda_Admin
-          NombreBoton="Agregar Documento"
-          campos={CamposInputsDocumentos}
-        /> */}
+        <Molda_Admin
+          NombreBoton="Filtrar"
+          campos={CamposInputsFiltroRecuperarArchivo}
+          Icono={<i class="bi bi-nut"></i>}
+        />
+
         <Table striped="columns" style={tableStyle}>
           <thead>
             <tr>
@@ -73,9 +151,11 @@ export default function RecuperacióndeArchivos() {
                 <td>{doc.eliminadoPor}</td>
                 <td>{doc.estado}</td>
                 <td>
-                  <a href="">Eliminar</a>
                   <br />
-                  <a href="">Editar</a>
+                  <Molda_Admin
+                    NombreBoton="Recuperacion de archivo"
+                    campos={CamposInputsRecuperarArchivo}
+                  />
                 </td>
               </tr>
             ))}
@@ -86,3 +166,18 @@ export default function RecuperacióndeArchivos() {
     </div>
   );
 }
+
+const tableStyle = {
+  width: "100%",
+  marginTop: "20px",
+};
+
+// Estilos
+const containerStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  width: "80%",
+  margin: "auto",
+  marginTop: "10%",
+};

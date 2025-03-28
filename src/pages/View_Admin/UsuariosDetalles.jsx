@@ -16,7 +16,7 @@ import {
 import { Line, Bar } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
 import Card from "react-bootstrap/Card";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 // Registrar Chart.js
 ChartJS.register(
