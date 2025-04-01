@@ -44,21 +44,21 @@ export default function MenuHamburguesa() {
   return (
     <>
       <Navbar expand="lg" className="px-3">
-        <Button variant="outline-primary" onClick={handleShow} className="me-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-chevron-compact-down"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"
-            />
-          </svg>
-        </Button>
+      <Button variant="light" onClick={handleShow} className="me-3">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        className="bi bi-chevron-compact-down"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fillRule="evenodd"
+          d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"
+        />
+      </svg>
+    </Button>
 
         <Navbar.Brand as={Link} to="/"></Navbar.Brand>
         <Nav className="ms-auto"></Nav>
@@ -214,17 +214,214 @@ export default function MenuHamburguesa() {
             </div>
           </Collapse>
           {/* ----------------------------------------------------------------- */}
-          <Lateral_Nombres
-            Nombre="Flujo de trabajo"
-            Link="/Flujosdedocumentos"
-          />
 
-          <Lateral_Nombres Nombre="Firma Electrónica" />
-          <Lateral_Nombres Nombre="Búsqueda y Recuperación" />
-          <Lateral_Nombres Nombre="Integración con Otras Herramientas" />
-          <Lateral_Nombres Nombre="Almacenamiento en la Nube" />
-          <Lateral_Nombres Nombre="Archivado y Retención" />
-          <Lateral_Nombres Nombre="Reportes" />
+
+        {/*------------------------------------------------------------------------------------  */}
+      {/* Flujo de trabajo   */}
+       
+      <hr />
+          <ListGroup.Item
+            action
+            onClick={() => toggleMenu("Flujodetrabajo")}
+          >
+            Flujodetrabajo {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["Flujodetrabajo"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres Nombre="Aprobacion" Link="/Aprobacion" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="Seguimiento" Link="/Seguimiento" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="Notificaciones" Link= "Notificaciones" 
+                
+                />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="Rechazo o Modificacion" Link= "/RechazoyModificacion" />
+              </ListGroup>
+            </div>
+          </Collapse>
+          <hr />
+          {/* ----------------------------------------------------------------- */}
+
+         {/* FIRMA ELECTRONICA  */}
+      
+          <ListGroup.Item
+            action
+            onClick={() => toggleMenu("FirmaElectrónica")}
+          >
+           Firma Electronica {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["FirmaElectronica"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres Nombre="FirmadeDocumento" Link="/FirmadedeDocumentos" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="EnviodeDocumento" Link="/EnviodeDocuemto" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="ValidaciondelaFirma" Link= "ValidaciondelaFirma " 
+                />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="AccesodeDocmentos" Link= "/AccesoaDocmentos" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="ConsultadeDocuemnto" Link= "/ConsultadeDocuemntos" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="RechazodeDocumentos" Link= "/RechazodeDocuemntos" />
+              </ListGroup>
+            </div>
+          </Collapse>
+          <hr />
+          {/* ----------------------------------------------------------------- */}
+          {/* Busqueda y Colaboracion */}
+          <ListGroup.Item
+            action
+            onClick={() => toggleMenu("BusquedayColaboracion")}
+          >
+           Busqueda y Colaboracion {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["BusquedayColaboracion"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres Nombre="BusquedadeDocumnetos" Link="/BusquedadeDocumnetos" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="FiltrosdeBusqueda" Link="/FiltrosdeBusqueda" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="RecuperaciondeDocuemntos" Link= "RecuperaciondeDocuemntos " 
+                />
+              </ListGroup>
+             
+            </div>
+          </Collapse>
+          <hr />
+          {/* ----------------------------------------------------------------- */}
+          {/* Integracion con otras Herramientas */}
+          <ListGroup.Item
+            action
+            onClick={() => toggleMenu("IntegraciónconOtrasHerramientas")}
+          >
+           Integración con Otras Herramientas {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["IntegraciónconOtrasHerramientas"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres Nombre="SincronizaciondeDocumentos" Link="/SincronizaciondeDocumentos" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="ServiciosenlaNube" Link="/ServiciosenlaNube" />
+              </ListGroup>
+              <ListGroup>
+                <Lateral_Nombres Nombre="InteraccionconBasedeDatos" Link= "/InteraccionconBasedeDatos " 
+                />
+              </ListGroup>
+             
+            </div>
+          </Collapse>
+          <hr />
+
+          {/*------------------------------------------------------------------------------  */}
+
+
+          {/* DIEGO */}
+          
+          <ListGroup.Item
+            action
+            onClick={() => toggleMenu("AlmacenamientoenlaNube")}
+          >
+            Almacenamiento en la Nube {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["AlmacenamientoenlaNube"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Copias de seguridad automaticas"
+                  Link="/Copiasdeseguridadautomaticas"
+                />
+                <Lateral_Nombres
+                  Nombre="Acceso remoto a documentos"
+                  Link="/Accesoremotoadocumentos"
+                />
+                <Lateral_Nombres
+                  Nombre="Sicronizacion en tiempo real"
+                  Link="/Sicronizacionentiemporeal"
+                />
+              </ListGroup>
+            </div>
+          </Collapse>
+          <hr />
+          <ListGroup.Item
+            action
+            onClick={() => toggleMenu("ArchivoyRetención")}
+          >
+            Archivo y Retención {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["ArchivoyRetención"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Politicas de retencion de Documentos"
+                  Link="/PoliticasretenciondeDocumentos"
+                />
+                <Lateral_Nombres
+                  Nombre="Archivo Automatico segun criterio"
+                  Link="/ArchivoAutomaticoseguncriterio"
+                />
+                <Lateral_Nombres
+                  Nombre="Eliminacion segura de documentos obsoletos"
+                  Link="/Eliminacionseguradedocumentosobsoletos"
+                />
+              </ListGroup>
+            </div>
+          </Collapse>
+          <hr />
+          <ListGroup.Item
+            action
+            onClick={() => toggleMenu("Reportes")}
+          >
+            Reportes {icon_Lateral}
+          </ListGroup.Item>
+          <Collapse in={openMenus["Reportes"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Generacion de reportes de actividad de documentos"
+                  Link="/Generaciondereportesdeactividaddedocumentos"
+                />
+                <Lateral_Nombres
+                  Nombre="Reporte de flujos de trabajo"
+                  Link="/Reportedeflujosdetrabajo"
+                />
+                <Lateral_Nombres
+                  Nombre="Reporte de firma electronica"
+                  Link="/Reportedefirmaelectronica"
+                />
+                <Lateral_Nombres
+                  Nombre="Reporte de seguridad de control de acccesos"
+                  Link="/Reportedeseguridaddecontroldeacccesos"
+                />
+                <Lateral_Nombres
+                  Nombre="Reporte de archivo y retencion de documentos"
+                  Link="/Reportedearchivoyretenciondedocumentos"
+                />
+                <Lateral_Nombres
+                  Nombre="Creacion de reportes personalizados"
+                  Link="/Creacionreportespersonalizados"
+                />
+              </ListGroup>
+            </div>
+          </Collapse>
+
+
+          {/* PDF */}
           <Lateral_Nombres Nombre="Pdf" Link="/AdminPdf" />
         </Offcanvas.Body>
       </Offcanvas>
