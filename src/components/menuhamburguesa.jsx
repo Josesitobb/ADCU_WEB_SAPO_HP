@@ -138,16 +138,88 @@ export default function MenuHamburguesa() {
           <Collapse in={openMenus["ControldeAccesosySeguridad"]}>
             <div className="ms-3">
               <ListGroup>
-                <Lateral_Nombres Nombre="Control de Accesos y Seguridad" />
+                <Lateral_Nombres
+                  Nombre="Gestion de grupos"
+                  Link="/GestionDeGrupos"
+                />
+              </ListGroup>
+
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Gestion de permisos individual"
+                  Link="/GestionIndividual"
+                />
+              </ListGroup>
+
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Registro de actividades"
+                  Link="/RegistroDeActivdades"
+                />
+              </ListGroup>
+
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Consultas y reportes"
+                  Link="/Consultas"
+                />
+              </ListGroup>
+
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Monitoreo y Alertas"
+                  Link="/Monitereo"
+                />
+              </ListGroup>
+
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Encriptamiento de documentos"
+                  Link="/Encritamiento"
+                />
+              </ListGroup>
+            </div>
+          </Collapse>
+          <hr />
+
+          {/* ----------------------------------------------------------------- */}
+          {/* Colaboracion */}
+
+          <ListGroup.Item action onClick={() => toggleMenu("Colaboracion")}>
+            Colaboracion {icon_Lateral}
+          </ListGroup.Item>
+
+          <Collapse in={openMenus["Colaboracion"]}>
+            <div className="ms-3">
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Control de Acceso"
+                  Link="/ControlDeAceso"
+                />
+              </ListGroup>
+
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Gestion de permisos individual"
+                  Link="/GestionDePermisosIn"
+                />
+              </ListGroup>
+
+              <ListGroup>
+                <Lateral_Nombres
+                  Nombre="Gestión de Versiones y Comentarios"
+                  Link="/GestionDeVersiones"
+                />
               </ListGroup>
             </div>
           </Collapse>
           {/* ----------------------------------------------------------------- */}
+          <Lateral_Nombres
+            Nombre="Flujo de trabajo"
+            Link="/Flujosdedocumentos"
+          />
 
-          <Lateral_Nombres Nombre="Colaboración" />
-          <Lateral_Nombres Nombre="Flujo de trabajo" Link='/Flujosdedocumentos' />
-
-          <Lateral_Nombres Nombre="Firma Electrónica"/>
+          <Lateral_Nombres Nombre="Firma Electrónica" />
           <Lateral_Nombres Nombre="Búsqueda y Recuperación" />
           <Lateral_Nombres Nombre="Integración con Otras Herramientas" />
           <Lateral_Nombres Nombre="Almacenamiento en la Nube" />
