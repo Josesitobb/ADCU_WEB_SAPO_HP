@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function GestorDePermisosIndividuales() {
-  return (
-    <div>GestorDePermisosIndividuales</div>
-  )
+  return <div>GestorDePermisosIndividuales</div>;
 }
