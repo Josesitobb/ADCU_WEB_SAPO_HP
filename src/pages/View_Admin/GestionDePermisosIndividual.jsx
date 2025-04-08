@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 export default function GestionDePermisosIndividual() {
   return (
-    <div>
+    <div >
       <Navbar_Admin />
       <h1 className="text-center my-4">Gestion De Permisos Individual</h1>
       <Container>
