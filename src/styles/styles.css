@@ -1,0 +1,60 @@
+/* BOTONES */
+.botonVerde {
+  margin-left: 10px;
+  border-radius: 8px;
+  padding: 5px 20px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #2ecc71;
+}
+
+.botonAzul {
+  margin-left: 10px;
+  border-radius: 8px;
+  padding: 5px 20px;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #3498db;
+}
+
+.botonVerde:hover {
+  background-color: #27ae60;
+}
+
+.botonVerde:active {
+  background-color: #27ae60;
+}
+
+/* TABLA */
+.encabezadoTabla {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  border-collapse: collapse;
+  height: 70px;
+}
+
+.tablaTodos {
+  width: 80%;
+  margin: 0% 12%;
+  table-layout: auto;
+}
+
+/* TITULOS */
+
+.tituloPrincipal {
+  padding-bottom: 6%;
+  margin-left: 15%;
+  margin-top: 2%;
+}
+
+/* LINEA */
+
+.lineaAccion {
+  border: none;
+  border-top: 1px solid #bdc3c7;
+  width: 80%;
+  margin: 8px 0;
+}
+

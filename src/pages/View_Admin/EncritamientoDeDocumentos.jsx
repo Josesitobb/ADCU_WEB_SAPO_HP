@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
-import { color } from "chart.js/helpers";
+
 export default function EncritamientoDeDocumentos() {
   return (
     <div>
@@ -68,7 +68,9 @@ export default function EncritamientoDeDocumentos() {
                 </select>
               </td>
               <td style={tdTablet}>
-                <button>Encriptar</button>
+                <button style={{ ...Botones, backgroundColor: "#2ecc71" }}>
+                  Encriptar
+                </button>
               </td>
             </tr>
           </tbody>
@@ -88,7 +90,7 @@ const thTable = {
   fontWeight: 600,
   height: "20%",
   fontSize: 22,
-  color: "#2c3e50",
+  color: "#000000",
 };
 
 const tdTablet = {
@@ -104,4 +106,14 @@ const input = {
   marginTop: "5px",
   width: "auto",
   height: "40px",
+  padding: "6px 10px",
+};
+
+const Botones = {
+  marginLeft: "10px",
+  borderRadius: "8px",
+  padding: "5px 20px  5px 20px",
+  border: "none",
+  color: "#FFFFFF",
+  fontWeight: 600,
 };

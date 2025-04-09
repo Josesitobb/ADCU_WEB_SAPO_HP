@@ -10,6 +10,7 @@ export default function Molda_Admin({
   campos = [],
   pdf,
   Titulo,
+  EstilosBoton,
 }) {
   const [show, setShow] = useState(false);
 
@@ -19,11 +20,7 @@ export default function Molda_Admin({
   //   console.log("Campos recibidos en Molda_Admin:", campos);
   return (
     <>
-      <Button
-        variant="primary"
-        onClick={handleShow}
-        style={{ marginLeft: "80     %" }}
-      >
+      <Button onClick={handleShow} className={EstilosBoton}>
         {Icono}
         {NombreBoton}
       </Button>
