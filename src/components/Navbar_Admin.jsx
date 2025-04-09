@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import MenuHamburguesa from "./Menuhamburguesa";
+import { Link } from "react-router-dom";
 
 export default function Navbar_Admin() {
   return (
@@ -21,7 +22,10 @@ export default function Navbar_Admin() {
         <NavDropdown title="Opciones" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.2">Perfil</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Cerrar sesión</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.4">
+          <Link to="/">Cerrar sesión</Link>
+          
+          </NavDropdown.Item>
         </NavDropdown>
       </Nav>
     </Navbar>
