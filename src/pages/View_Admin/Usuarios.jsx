@@ -1,28 +1,28 @@
 import React from "react";
 import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
-import Table from "react-bootstrap/Table";
 import Molda_Admin from "../../components/Molda_Admin";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import "../../styles/styles.css";
 export default function Usuarios() {
   return (
     <div>
       <Navbar_Admin />
       <h1 className="tituloPrincipal">USUARIOS</h1>
-      <Row>
-        <Col>
-          <div style={{ marginLeft: "82%", marginBottom: "7px" }}>
-            <Molda_Admin
-              NombreBoton="Agregar Usuario"
-              campos={CamposInputs}
-              EstilosBoton={"botonVerde"}
-            />
-          </div>
-        </Col>
-      </Row>
+    
 
+      <div style={{marginLeft:"9%",marginBottom:"12px"}}>
+      <Molda_Admin
+          NombreBoton="Filtrar"
+          campos={CamposInputs}
+          EstilosBoton={"botonVerde"}
+        />
+      <input type="text" className="input" placeholder="Ingrese un nombre de usuario" style={{width:"15%",marginLeft:"56%"}}  />
+        <Molda_Admin
+          NombreBoton="Agregar Usuario"
+          campos={CamposInputs}
+          EstilosBoton={"botonVerde"}
+        />
+        </div>
       <table className="tablaTodos">
         <thead className="encabezadoTabla">
           <tr>
@@ -41,7 +41,7 @@ export default function Usuarios() {
         </thead>
         <tbody >
           {UsuariosN.map((Usu, index) => (
-            <tr key={index} style={{borderBottom:"1px solid #ccc"}}>
+            <tr key={index} className="FinalTabla">
         
               <td>{index + 1}</td>
               <td>{Usu.Nombre}</td>
@@ -53,19 +53,20 @@ export default function Usuarios() {
               <td>{Usu.Correo}</td>
               <td>{Usu.Rol}</td>
               <td>
-                <div style={{ margin: "2px" }}></div>
+                <div style={{ margin: "4px" }}></div>
                 <Molda_Admin
                   NombreBoton="Eliminar usuario"
                   campos={CamposInputsEliminar}
                   EstilosBoton={"botonAzul"}
                 />
-                <div style={{ margin: "2px" }}></div>
+                <div style={{ margin: "4px" }}></div>
                 <Molda_Admin
                   NombreBoton="Editar usuario"
                   campos={CamposInputs}
                   EstilosBoton={"botonAzul"}
                 />
                 
+                <div style={{marginBottom:"4px"}}></div>
               </td>
             </tr>
 
@@ -92,6 +93,8 @@ const UsuariosN = [
     Correo: "PedroSanchez@gmail.com",
     Rol: "Administrador",
   },
+  
+  
 ];
 // ESTILOS AUXILIARES
 
