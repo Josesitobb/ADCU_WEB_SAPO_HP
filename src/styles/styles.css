@@ -8,6 +8,15 @@
   font-weight: 600;
   background-color: #2ecc71;
   height: 40px;
+  text-decoration: none;
+}
+
+.botonVerde:hover {
+  background-color: #27ae60;
+}
+
+.botonVerde:active {
+  background-color: #27ae60;
 }
 
 .botonAzul {
@@ -21,12 +30,9 @@
   height: 40px;
 }
 
-.botonVerde:hover {
-  background-color: #27ae60;
-}
+.botonAzul:hover{
+  background-color: #256b9be3;
 
-.botonVerde:active {
-  background-color: #27ae60;
 }
 
 /* TABLA */
@@ -72,6 +78,7 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   margin-top: 5px;
-  width: 45%;
+  width: auto;
   height: 40px;
+
 }
