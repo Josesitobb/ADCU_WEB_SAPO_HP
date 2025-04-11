@@ -6,18 +6,19 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "../../styles/styles.css";
 export default function GestionDePermisosIndividual() {
   return (
-    <div >
+    <div>
       <Navbar_Admin />
       <h1 className="text-center my-4">Gestion De Permisos Individual</h1>
       <Container>
         <Row>
           {" "}
-          <p style={Tiulos}>Buscar Usuarios</p>
+          <p className="subtitulos">Buscar Usuarios</p>
         </Row>
         <Row>
-          <select name="" id="" style={Select}>
+          <select name="" id="" className="input" style={{width:"100%"}} >
             <option value="" disabled>
               Seleccione un usuario
             </option>
@@ -28,28 +29,23 @@ export default function GestionDePermisosIndividual() {
         </Row>
 
         <Row>
-          <p style={Tiulos}> Permisos actuales del usuario</p>
+          <p className="subtitulos"> Permisos actuales del usuario</p>
           <ul
-          // style={{
-          //   border: "1px solid #ccc",
-          //   padding: "10px",
-          //   borderRadius: "5px",
-          // }}
           >
-            <li style={Listas}>Ver Documentos (heredado del grupo)</li>
-            <li style={Listas}>Editar Documentos (individual)</li>
+            <li className="Listas">Ver Documentos (heredado del grupo)</li>
+            <li className="Listas">Editar Documentos (individual)</li>
           </ul>
         </Row>
 
         <Row>
-          <p style={Tiulos}> Asignar Permisos Individuales</p>
+          <p className="subtitulos"> Asignar Permisos Individuales</p>
 
           <Col>
             <Form.Check
               type="checkbox"
               id="VerDocumentos"
               label="Ver documentos"
-              style={CheckboxGrande}
+              className="checkbox"
             />
           </Col>
           <Col>
@@ -57,7 +53,7 @@ export default function GestionDePermisosIndividual() {
               type="checkbox"
               id="EditarDocumentos"
               label="Editar Documentos"
-              style={CheckboxGrande}
+              className="checkbox"
             />
           </Col>
           <Col>
@@ -65,52 +61,27 @@ export default function GestionDePermisosIndividual() {
               type="checkbox"
               id="DescargarDocumentos"
               label="Descargar Documentos"
-              style={CheckboxGrande}
+              className="checkbox"
             />
           </Col>
         </Row>
 
-        <Button style={{ marginTop: "20px" }}> Guardar cambios </Button>
+        <Button style={{ marginTop: "20px" }} className="botonAzul">
+          {" "}
+          Guardar cambios{" "}
+        </Button>
 
-        <p style={Tiulos}>Restablecer Permisos</p>
-        <Button> Eliminar Permisos Individuales </Button>
+        <p className="subtitulos">Restablecer Permisos</p>
+        <Button className="botonAzul"> Eliminar Permisos Individuales </Button>
       </Container>
       <Footer />
     </div>
   );
 }
 
-const Tiulos = {
-  fontFamily: "Poppins, sans-serif",
-  fontSize: "25px",
-  fontWeight: 600,
-  marginBottom: "20px",
-  color: "#2c3e50",
-  marginTop: "40px",
-};
-
 const Select = {
   borderRadius: "10px",
   height: "45px",
   fontFamily: "Poppins, sans-serif",
   fontSize: "17px",
-};
-
-const Listas = {
-  border: "1px solid #ccc",
-  height: "50px",
-  borderRadius: "5px",
-  listStyle: "none",
-  fontFamily: "Poppins, sans-serif",
-  fontSize: "17px",
-  display: "flex",
-  alignItems: "center",
-  paddingLeft: "15px",
-  marginBottom: "1px",
-};
-
-const CheckboxGrande = {
-  transform: "scale(1.4)",
-  marginRight: "10px",
-  marginLeft: "75px",
 };
