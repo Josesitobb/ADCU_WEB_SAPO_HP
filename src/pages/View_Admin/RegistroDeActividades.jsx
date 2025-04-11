@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
-import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
+import "../../styles/styles.css";
 
 export default function RegistroDeActividades() {
   const [show, setShow] = useState(false);
@@ -16,18 +16,16 @@ export default function RegistroDeActividades() {
     <div>
       <Navbar_Admin />
 
-      <h1 className="text-center my-4" style={Titulo}>
-        Registro de actividades
-      </h1>
+      <h1 className="tituloPrincipal">Registro de actividades</h1>
       <Row>
         <Col>
-          <input type="text" style={inputStyle} />
+          <input type="text" className="input"  style={{marginLeft:"75%",marginBottom:"10px",width:"15%"}} placeholder="Ingrese un nombre de usuario para flitrar"/>
         </Col>
       </Row>
 
       <Row>
-        <Table style={Tabla} striped bordered hover>
-          <thead>
+        <table className="tablaTodos">
+          <thead className="encabezadoTabla">
             <tr>
               <th>#</th>
               <th>Usuario</th>
@@ -44,14 +42,14 @@ export default function RegistroDeActividades() {
                 <td>{Reg.Acciones}</td>
                 <td>{Reg.FechayHora}</td>
                 <td>
-                  <Button variant="primary" onClick={handleShow}>
+                  <Button className="botonAzul" onClick={handleShow}>
                     Detalles
                   </Button>
                 </td>
               </tr>
             ))}
           </tbody>
-        </Table>
+        </table>
       </Row>
       <Footer />
       {/* MODAL */}
@@ -109,17 +107,6 @@ export default function RegistroDeActividades() {
   );
 }
 
-const Titulo = {
-  fontFamily: "Poppins, sans-serif",
-  fontSize: "50px",
-  fontWeight: 600,
-};
-
-const Tabla = {
-  width: "60%",
-  marginLeft: "20%",
-};
-
 const Registros = [
   {
     id: 1,
@@ -134,9 +121,3 @@ const Registros = [
     FechayHora: "12/04/2025",
   },
 ];
-
-const inputStyle = {
-  marginLeft: "67%",
-  marginBottom: "25px",
-  borderRadius: "3px",
-};

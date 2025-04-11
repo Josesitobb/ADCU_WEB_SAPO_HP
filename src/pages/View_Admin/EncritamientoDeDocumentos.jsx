@@ -1,35 +1,22 @@
 import React from "react";
 import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
-
+import "../../styles/styles.css";
 export default function EncritamientoDeDocumentos() {
   return (
     <div>
       <Navbar_Admin />
 
-      <h1 className="text-center my-4"> Encritamiento De Documentos</h1>
+      <h1 className="tituloPrincipal"> Encritamiento De Documentos</h1>
 
       <div>
-        <table
-          style={{
-            width: "70%",
-            borderCollapse: "collapse",
-            margin: "0 auto",
-          }}
-        >
-          <thead
-            style={{
-              backgroundColor: "#ecf0f1",
-              color: "#2c3e50",
-              borderCollapse: "collapse",
-              height: "70px",
-            }}
-          >
+        <table className="tablaTodos">
+          <thead className="encabezadoTabla">
             <tr>
-              <th style={thTable}>Nombre del Documento </th>
-              <th style={thTable}>Estado</th>
-              <th style={thTable}>Nivel de Seguridad </th>
-              <th style={thTable}>Acción</th>
+              <th>Nombre del Documento </th>
+              <th>Estado</th>
+              <th>Nivel de Seguridad </th>
+              <th>Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -57,7 +44,7 @@ export default function EncritamientoDeDocumentos() {
                 Encriptado
               </td>
               <td style={tdTablet}>
-                <select name="" id="accion" style={input}>
+                <select name="" id="accion" className="input">
                   <div style={{ boxShadow: "5px 5px 0" }}>
                     <option value="">Seleccionar </option>
                     <option value="">Crear</option>
@@ -68,9 +55,7 @@ export default function EncritamientoDeDocumentos() {
                 </select>
               </td>
               <td style={tdTablet}>
-                <button style={{ ...Botones, backgroundColor: "#2ecc71" }}>
-                  Encriptar
-                </button>
+                <button className="botonAzul">Encriptar</button>
               </td>
             </tr>
           </tbody>
@@ -84,36 +69,9 @@ export default function EncritamientoDeDocumentos() {
   );
 }
 
-const thTable = {
-  padding: "12px",
-  textAlign: "left",
-  fontWeight: 600,
-  height: "20%",
-  fontSize: 22,
-  color: "#000000",
-};
-
 const tdTablet = {
   fontSize: 20,
   marginLeft: "100px",
   paddingLeft: "10px",
   paddingTop: "30px",
-};
-
-const input = {
-  borderRadius: "5px",
-  border: "1px solid #ccc",
-  marginTop: "5px",
-  width: "auto",
-  height: "40px",
-  padding: "6px 10px",
-};
-
-const Botones = {
-  marginLeft: "10px",
-  borderRadius: "8px",
-  padding: "5px 20px  5px 20px",
-  border: "none",
-  color: "#FFFFFF",
-  fontWeight: 600,
 };

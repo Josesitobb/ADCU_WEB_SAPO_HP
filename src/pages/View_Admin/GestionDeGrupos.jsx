@@ -1,27 +1,27 @@
 import React from "react";
 import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
-import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Molda_Admin from "../../components/Molda_Admin";
+import "../../styles/styles.css";
 
 export default function GestionDeGrupos() {
   return (
     <>
       <div>
         <Navbar_Admin />
-        <h1 className="text-center my-4">Gestion de grupos</h1>
+        <h1 className="tituloPrincipal">Gestion de grupos</h1>
         <Container>
           <Row>
             <Col>
-              {" "}
+      
               <label htmlFor="" className="">
-                {" "}
-                <h3>Nombre de grupo</h3>{" "}
+
+                <h3>Nombre de grupo</h3>
               </label>
             </Col>
             <input
@@ -39,8 +39,7 @@ export default function GestionDeGrupos() {
                 inline
                 label="Ver Documento"
                 type="checkbox"
-                className="checkbox-grande"
-                style={checkboxLabelStyle}
+                className="checkbox"
               />
             </Col>
             <Col>
@@ -48,8 +47,7 @@ export default function GestionDeGrupos() {
                 inline
                 label="Editar Documento"
                 type="checkbox"
-                className="checkbox-grande"
-                style={checkboxLabelStyle}
+                className="checkbox"
               />
             </Col>
             <Col>
@@ -57,8 +55,7 @@ export default function GestionDeGrupos() {
                 inline
                 label="Compartir Documento"
                 type="checkbox"
-                className="checkbox-grande"
-                style={checkboxLabelStyle}
+                className="checkbox"
               />
             </Col>
             <Col>
@@ -66,15 +63,14 @@ export default function GestionDeGrupos() {
                 inline
                 label="Descargar Documento"
                 type="checkbox"
-                className="checkbox-grande"
-                style={checkboxLabelStyle}
+                className="checkbox"
               />
             </Col>
           </Row>
           <Row className="justify-content-center">
             <Col xs="auto">
               <Button
-                variant="success"
+                className="botonVerde"
                 type="summit"
                 id="BotonEnviar"
                 style={botonStyle}
@@ -86,54 +82,50 @@ export default function GestionDeGrupos() {
           </Row>
         </Container>
         <h1 className="text-center my-4">Grupos Creados</h1>
-        <div style={{ marginLeft: "70%", marginBottom: "5px" }}>
-          {/* AGREGAR USUARIOS */}
-          <Molda_Admin NombreBoton="Agregar Usuarios" campos={AgregarUsuario} />
-          {/* QUITAR USUARIOS */}
-          <Molda_Admin NombreBoton="Remover Usuarios" campos={AgregarUsuario} />
-        </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Table striped bordered hover style={{ width: "80%" }}>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Nombre del grupo</th>
-                <th>Permisos</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {datosDeGrupos.map((dtGrupos, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{dtGrupos.NombreGrupo}</td>
-                  <td>{dtGrupos.Permisos}</td>
-                  <td style={{ marginLeft: "10%" }}>
-                    <Molda_Admin
-                      NombreBoton="Editar Grupo"
-                      campos={editarGrupos}
-                    />
+        <div style={{marginLeft:"70%",marginBottom:"10px"}}>
 
-                    <Molda_Admin
-                      NombreBoton="Eliminar Grupo"
-                      campos={EliminarGrupo}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-          <Footer />
+          {/* AGREGAR USUARIOS */}
+          <Molda_Admin NombreBoton="Agregar Usuarios" campos={AgregarUsuario} EstilosBoton={"botonVerde"} />
+          {/* QUITAR USUARIOS */}
+          <Molda_Admin NombreBoton="Remover Usuarios" campos={AgregarUsuario} EstilosBoton={"botonVerde"}  />
         </div>
+
+        <table className="tablaTodos">
+          <thead className="encabezadoTabla">
+            <tr>
+              <th>#</th>
+              <th>Nombre del grupo</th>
+              <th>Permisos</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {datosDeGrupos.map((dtGrupos, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{dtGrupos.NombreGrupo}</td>
+                <td>{dtGrupos.Permisos}</td>
+                <td style={{ marginLeft: "10%" }}>
+                  <Molda_Admin
+                    NombreBoton="Editar Grupo"
+                    campos={editarGrupos}
+                    EstilosBoton={"botonAzul"}
+                  />
+                  <Molda_Admin
+                    NombreBoton="Eliminar Grupo"
+                    campos={EliminarGrupo}
+                    EstilosBoton={"botonAzul"}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <Footer />
       </div>
     </>
   );
 }
-
-const checkboxLabelStyle = {
-  fontSize: "20px",
-  fontWeight: 400,
-};
 
 const botonStyle = {
   marginTop: "30px",

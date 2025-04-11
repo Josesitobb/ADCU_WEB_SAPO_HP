@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
-import Table from "react-bootstrap/Table";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -15,6 +14,77 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
+import "../../styles/styles.css";
+
+export default function Index_Admin() {
+  return (
+    <div>
+      <Navbar_Admin />
+      <h1 style={styles.title}>Bienvenido de nuevo ADMIN</h1>
+
+      {/* Barra de accesos rápidos */}
+      <h5 style={styles.title}>Acceso rápido</h5>
+      <div style={styles.quickAccessBar}>
+        <div style={styles.iconContainer}>
+          <i className="bi bi-person-circle" style={styles.icon}></i>
+          <span>Usuario</span>
+        </div>
+        <div style={styles.iconContainer}>
+          <i className="bi bi-file-earmark" style={styles.icon}></i>
+          <span>Documentos</span>
+        </div>
+        <div style={styles.iconContainer}>
+          <i className="bi bi-activity" style={styles.icon}></i>
+          <span>Actividad</span>
+        </div>
+      </div>
+
+      {/* Contenido lado a lado */}
+      <div style={styles.content}>
+        {/* Gráfica */}
+        <div style={styles.chartContainer}>
+          <h5 style={{ textAlign: "center", marginBottom: "15px" }}>
+            Gráfica de documentos subidos
+          </h5>
+          <Line options={options} data={data} />
+        </div>
+
+        {/* Tabla */}
+        <div style={styles.tableContainer}>
+          <h5 style={{ textAlign: "center", marginBottom: "15px" }}>
+            Documentos recientes
+          </h5>
+          <table className="tablaTodos">
+            <thead className="encabezadoTabla">
+              <tr>
+                <th>#</th>
+                <th>Nombre de quien subió</th>
+                <th>Documento</th>
+                <th>Fecha y hora</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Pepe</td>
+                <td>Papa</td>
+                <td>12/01/2026 13:01:22</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Pera</td>
+                <td>papaya</td>
+                <td>12/01/2026 13:01:22</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
+}
 
 // Registrar Chart.js
 ChartJS.register(
@@ -99,78 +169,3 @@ const data = {
     },
   ],
 };
-
-export default function Index_Admin() {
-  return (
-    <div>
-      <Navbar_Admin />
-      <h1 style={styles.title}>Bienvenido de nuevo ADMIN</h1>
-
-      {/* Barra de accesos rápidos */}
-      <h5 style={styles.title}>Acceso rápido</h5>
-      <div style={styles.quickAccessBar}>
-        <div style={styles.iconContainer}>
-          <i className="bi bi-person-circle" style={styles.icon}></i>
-          <span>Usuario</span>
-        </div>
-        <div style={styles.iconContainer}>
-          <i className="bi bi-file-earmark" style={styles.icon}></i>
-          <span>Documentos</span>
-        </div>
-        <div style={styles.iconContainer}>
-          <i className="bi bi-activity" style={styles.icon}></i>
-          <span>Actividad</span>
-        </div>
-      </div>
-
-      {/* Contenido lado a lado */}
-      <div style={styles.content}>
-        {/* Gráfica */}
-        <div style={styles.chartContainer}>
-          <h5 style={{ textAlign: "center", marginBottom: "15px" }}>
-            Gráfica de documentos subidos
-          </h5>
-          <Line options={options} data={data} />
-        </div>
-
-        {/* Tabla */}
-        <div style={styles.tableContainer}>
-          <h5 style={{ textAlign: "center", marginBottom: "15px" }}>
-            Documentos recientes
-          </h5>
-          <Table striped bordered hover style={styles.table}>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </Table>
-        </div>
-      </div>
-
-      <Footer />
-    </div>
-  );
-}

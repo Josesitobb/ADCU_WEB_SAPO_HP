@@ -8,21 +8,25 @@ export default function Usuarios() {
     <div>
       <Navbar_Admin />
       <h1 className="tituloPrincipal">USUARIOS</h1>
-    
 
-      <div style={{marginLeft:"9%",marginBottom:"12px"}}>
-      <Molda_Admin
+      <div style={{ marginLeft: "9%", marginBottom: "12px" }}>
+        {/* <Molda_Admin
           NombreBoton="Filtrar"
           campos={CamposInputs}
           EstilosBoton={"botonVerde"}
+        /> */}
+        <input
+          type="text"
+          className="input"
+          placeholder="Ingrese un nombre de usuario"
+          style={{ width: "15%", marginLeft: "56%" }}
         />
-      <input type="text" className="input" placeholder="Ingrese un nombre de usuario" style={{width:"15%",marginLeft:"56%"}}  />
         <Molda_Admin
           NombreBoton="Agregar Usuario"
           campos={CamposInputs}
           EstilosBoton={"botonVerde"}
         />
-        </div>
+      </div>
       <table className="tablaTodos">
         <thead className="encabezadoTabla">
           <tr>
@@ -37,12 +41,10 @@ export default function Usuarios() {
             <th>Rol</th>
             <th>Acciones</th>
           </tr>
-          
         </thead>
-        <tbody >
+        <tbody>
           {UsuariosN.map((Usu, index) => (
             <tr key={index} className="FinalTabla">
-        
               <td>{index + 1}</td>
               <td>{Usu.Nombre}</td>
               <td>{Usu.Apellido}</td>
@@ -65,12 +67,10 @@ export default function Usuarios() {
                   campos={CamposInputs}
                   EstilosBoton={"botonAzul"}
                 />
-                
-                <div style={{marginBottom:"4px"}}></div>
+
+                <div style={{ marginBottom: "4px" }}></div>
               </td>
             </tr>
-
-            
           ))}
         </tbody>
       </table>
@@ -93,8 +93,6 @@ const UsuariosN = [
     Correo: "PedroSanchez@gmail.com",
     Rol: "Administrador",
   },
-  
-  
 ];
 // ESTILOS AUXILIARES
 

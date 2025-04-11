@@ -30,9 +30,8 @@
   height: 40px;
 }
 
-.botonAzul:hover{
+.botonAzul:hover {
   background-color: #256b9be3;
-
 }
 
 /* TABLA */
@@ -45,21 +44,42 @@
 
 .tablaTodos {
   width: 80%;
-  margin: 0 auto;  /* Centra la tabla horizontalmente */
+  margin: 0 auto; /* Centra la tabla horizontalmente */
   table-layout: auto;
 }
 
 .FinalTabla {
-
   border-bottom: 1px solid #ccc;
 }
 
+.tablaTodos th,
+.tablaTodos td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
 /* TITULOS */
 
 .tituloPrincipal {
   padding-bottom: 6%;
   padding-top: 2%;
   text-align: center;
+}
+.subtitulos {
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  color: #2c3e50;
+}
+
+table thead tr th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  height: 20%;
+  font-size: 22px;
+  color: #363636;
 }
 
 /* LINEA */
@@ -71,8 +91,6 @@
   margin: 8px 0;
 }
 
-
-
 /* INPUTS */
 .input {
   border-radius: 5px;
@@ -80,5 +98,26 @@
   margin-top: 5px;
   width: auto;
   height: 40px;
+}
 
+/* checkbox */
+.checkbox {
+  transform: scale(1.4);
+  margin-top: 10px;
+  margin-left: 75px;
+}
+
+/* Listas */
+
+.Listas {
+  border: 1px solid #ccc;
+  height: 50px;
+  border-radius: 5px;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  margin-bottom: 1px;
 }
