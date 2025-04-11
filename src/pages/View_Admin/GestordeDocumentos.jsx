@@ -70,6 +70,7 @@ export default function GestordeDocumentos() {
                     NombreBoton="Visualizar"
                     pdf
                     EstilosBoton={"botonAzul"}
+                    Links={"/assets/Administración_de_cuentas_de_cobro.pdf"}
                   />
                 </td>
               </tr>
@@ -118,6 +119,7 @@ const documentos = [
     DocumentoFecha: "12/02/2024",
     DocumentoEstado: "Activo",
   },
+  
 ];
 
 const CamposInputsDocumentos = [

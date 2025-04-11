@@ -71,7 +71,7 @@ export default function IntercambioDeDocumentos() {
 
                   <td >
                     <div style={{paddingTop:"10px",paddingBottom:"12px"}}>
-                    <Molda_Admin NombreBoton="Visualizar" pdf EstilosBoton={"botonAzul"}/>
+                    <Molda_Admin NombreBoton="Visualizar" pdf     Links={"/assets/Diagrama_de_clases.pdf"} EstilosBoton={"botonAzul"}/>
                     </div>
                   </td>
                 </tr>

@@ -243,8 +243,8 @@ export default function MenuHamburguesa() {
                 <Lateral_Nombres Nombre="Rechazo o Modificacion" Link= "/RechazoyModificacion" />
               </ListGroup>
             </div>
-          </Collapse>
-          <hr />
+          </Collapse> 
+           <hr />
           {/* ----------------------------------------------------------------- */}
 
          {/* FIRMA ELECTRONICA  */}
@@ -422,7 +422,7 @@ export default function MenuHamburguesa() {
 
 
           {/* PDF */}
-          <Lateral_Nombres Nombre="Pdf" Link="/AdminPdf" />
+          <Lateral_Nombres Nombre="Documentos proyecto" Link="/DocumentosProyectos" />
         </Offcanvas.Body>
       </Offcanvas>
 

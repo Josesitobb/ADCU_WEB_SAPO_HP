@@ -9,7 +9,7 @@ export default function Molda_Admin({
   Icono,
   campos = [],
   pdf,
-  Titulo,
+  Links,
   EstilosBoton,
 }) {
   const [show, setShow] = useState(false);
@@ -83,9 +83,16 @@ export default function Molda_Admin({
             )}
           </Form>
 
-          {pdf && (
-            <Pdf_Admin Link="/assets/Administración_de_cuentas_de_cobro.pdf" />
+
+
+
+          {pdf &&   (
+            // <Pdf_Admin Link="/assets/Administración_de_cuentas_de_cobro.pdf" />
+            <Pdf_Admin Link={Links} />
           )}
+
+
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

@@ -19,6 +19,7 @@ import EncritamientoDeDocumentos from "./pages/View_Admin/EncritamientoDeDocumen
 import ControlDeAceso from "./pages/View_Admin/ControlDeAceso";
 import GestorDePermisosIndividuales from "./pages/View_Admin/GestionDePermisosIndividual";
 import GestionDeVersionyComentarios from "./pages/View_Admin/GestionDeVersionyComentarios";
+import Documentos from "./pages/View_Admin/Documentos";
 
 //    DAYANA
 
@@ -82,6 +83,7 @@ const App = () => {
         <Route path="/ControlDeAceso" element={<ControlDeAceso />} />
         <Route path="/GestionDePermisosIn" element={<GestorDePermisosIndividuales />} />
         <Route path="/GestionDeVersiones" element={<GestionDeVersionyComentarios />} />
+        <Route path="/DocumentosProyectos" element={<Documentos/>} />
      
       {/* ----------------------------------------------------------------------------- */}
 
