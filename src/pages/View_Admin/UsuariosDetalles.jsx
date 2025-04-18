@@ -17,7 +17,61 @@ import { Line, Bar } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
 import Card from "react-bootstrap/Card";
 import { Row, Col } from "react-bootstrap";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 
+export default function UsuariosDetalles() {
+  return (
+    <div>
+      <MenuHamburguesa />
+      <h1 style={style}>Usuario detalles </h1>
+      <div style={style}>
+        <Line options={options} data={data} />
+        <Bar options={options} data={data} />
+      </div>
+
+      <Row className="mb-4 mt-5 justify-content-center">
+        <Col md={4}>
+          <Card className="text-center shadow-sm border-0 rounded-4 p-4">
+            <Card.Body>
+              <h3 className="text-primary mb-3 d-flex justify-content-center align-items-center gap-2">
+                <i className="bi bi-people fs-2"></i> 15.000
+              </h3>
+              <Card.Text className="text-muted">
+                Usuarios registrados en el sistema
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+      <Row className="mb-5 justify-content-center">
+        <Col md={4}>
+          <Card className="text-center shadow-sm border-0 rounded-4 p-4">
+            <Card.Body>
+              <h3 className="text-danger mb-3 d-flex justify-content-center align-items-center gap-2">
+                <i className="bi bi-person-dash fs-2"></i> 1.200
+              </h3>
+              <Card.Text className="text-muted">Usuarios Inactivados</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={4}>
+          <Card className="text-center shadow-sm border-0 rounded-4 p-4">
+            <Card.Body>
+              <h3 className="text-success mb-3 d-flex justify-content-center align-items-center gap-2">
+                <i className="bi bi-person-check fs-2"></i> 13.800
+              </h3>
+              <Card.Text className="text-muted">Usuarios Activos</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      <Footer />
+    </div>
+  );
+}
+// Chart.js
 // Registrar Chart.js
 ChartJS.register(
   CategoryScale,
@@ -29,7 +83,7 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
+// Opciones
 const options = {
   responsive: true,
   plugins: {
@@ -62,62 +116,16 @@ const data = {
   ],
 };
 
+// Estilos
+
 const style = {
-  width: "500px",
+  width: "700px",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   margin: "0 auto",
 };
 
-export default function UsuariosDetalles() {
-  return (
-    <div>
-      <Navbar_Admin />
-      <h1 style={style}>Usuario detalles </h1>
-      <div style={style}>
-        <Line options={options} data={data} />
-        <Bar options={options} data={data} />
-      </div>
-
-      <Row className="mb-4" style={{ marginTop: "80px" }}>
-        <Col md={4}>
-          <Card className="p-3 text-center shadow">
-            <Card.Body>
-              <h3 className="text-primary">
-                <i className="bi bi-people">15.000 </i>
-              </h3>
-              <Card.Text>Usuarios registrados en el sistema</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-
-        <Col md={4}>
-          <Card className="p-3 text-center shadow">
-            <Card.Body>
-              <h2 className="text-danger">
-                {" "}
-                <i class="bi bi-person-dash">1.200</i>
-              </h2>
-              <Card.Text>Usuarios Inactivados</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-
-        <Col>
-          <Card className="p-3 text-center shadow">
-            <Card.Body>
-              <h2 className="text-success">
-                {" "}
-                <i class="bi bi-person-check">13.800 </i>
-              </h2>
-              <Card.Text>Usuarios Activos</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
-      <Footer />
-    </div>
-  );
-}
+const stylesCard = {
+  marginLeft: "10px",
+};

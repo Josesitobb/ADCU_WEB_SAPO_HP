@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import "../../styles/styles.css";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 
 export default function RegistroDeActividades() {
   const [show, setShow] = useState(false);
@@ -14,12 +14,17 @@ export default function RegistroDeActividades() {
   const handleShow = () => setShow(true);
   return (
     <div>
-      <Navbar_Admin />
+      <MenuHamburguesa />
 
       <h1 className="tituloPrincipal">Registro de actividades</h1>
       <Row>
         <Col>
-          <input type="text" className="input"  style={{marginLeft:"75%",marginBottom:"10px",width:"15%"}} placeholder="Ingrese un nombre de usuario para flitrar"/>
+          <input
+            type="text"
+            className="input"
+            style={{ marginLeft: "75%", marginBottom: "10px", width: "15%" }}
+            placeholder="Ingrese un nombre de usuario para flitrar"
+          />
         </Col>
       </Row>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar_Admin from "../../components/Navbar_Admin";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 import Footer from "../../components/Footer";
 import Molda_Admin from "../../components/Molda_Admin";
 import "../../styles/styles.css";
@@ -7,57 +7,56 @@ import "../../styles/styles.css";
 export default function RecuperacióndeArchivos() {
   return (
     <div>
-      <Navbar_Admin />
+      <MenuHamburguesa />
       <h2 className="tituloPrincipal">Recuperacion de archivos</h2>
-<div style={{marginLeft:"85%",marginBottom:"10px"}}>
+      <div style={{ marginLeft: "85%", marginBottom: "10px" }}>
         <Molda_Admin
           NombreBoton="Filtrar"
           campos={CamposInputsFiltroRecuperarArchivo}
           EstilosBoton={"botonVerde"}
         />
-        </div>
-        <table className="tablaTodos">
-          <thead className="encabezadoTabla">
-            <tr >
-              <th>#</th>
-              <th>Nombre del Archivo</th>
-              <th>Categoría</th>
-              <th>Propietario</th>
-              <th>Fecha de Eliminación</th>
-              <th>Eliminado Por</th>
-              <th>Estado</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {archivosRecuperacion.map((doc, index) => (
-              <tr className="FinalTabla">
-                <td>{index + 1}</td>
-                <td>{doc.nombreArchivo}</td>
-                <td>{doc.categoria}</td>
-                <td>{doc.propietario}</td>
-                <td>{doc.fechaEliminacion}</td>
-                <td>{doc.eliminadoPor}</td>
-                <td>{doc.estado}</td>
-                <td>
-                  <div style={{paddingTop:"10px",paddingBottom:"12px"}}>
+      </div>
+      <table className="tablaTodos">
+        <thead className="encabezadoTabla">
+          <tr>
+            <th>#</th>
+            <th>Nombre del Archivo</th>
+            <th>Categoría</th>
+            <th>Propietario</th>
+            <th>Fecha de Eliminación</th>
+            <th>Eliminado Por</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {archivosRecuperacion.map((doc, index) => (
+            <tr className="FinalTabla">
+              <td>{index + 1}</td>
+              <td>{doc.nombreArchivo}</td>
+              <td>{doc.categoria}</td>
+              <td>{doc.propietario}</td>
+              <td>{doc.fechaEliminacion}</td>
+              <td>{doc.eliminadoPor}</td>
+              <td>{doc.estado}</td>
+              <td>
+                <div style={{ paddingTop: "10px", paddingBottom: "12px" }}>
                   <Molda_Admin
                     NombreBoton="Recuperacion de archivo"
                     campos={CamposInputsRecuperarArchivo}
                     EstilosBoton={"botonAzul"}
                   />
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-    
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
       <Footer />
     </div>
   );
 }
-
 
 // CAMPOS
 
@@ -171,4 +170,3 @@ const CamposInputsFiltroRecuperarArchivo = [
     placeholder: "Ingrese el estado (Desactivado, Eliminado, etc.)",
   },
 ];
-

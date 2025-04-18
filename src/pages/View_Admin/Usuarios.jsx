@@ -1,12 +1,14 @@
 import React from "react";
-import Navbar_Admin from "../../components/Navbar_Admin";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 import Footer from "../../components/Footer";
 import Molda_Admin from "../../components/Molda_Admin";
 import "../../styles/styles.css";
+import Navbar_Admin from "../../components/Navbar_Admin";
 export default function Usuarios() {
   return (
     <div>
       <Navbar_Admin />
+      <MenuHamburguesa />
       <h1 className="tituloPrincipal">USUARIOS</h1>
 
       <div style={{ marginLeft: "9%", marginBottom: "12px" }}>
@@ -75,7 +77,7 @@ export default function Usuarios() {
         </tbody>
       </table>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

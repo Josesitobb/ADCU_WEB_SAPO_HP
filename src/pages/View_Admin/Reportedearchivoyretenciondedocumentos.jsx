@@ -1,14 +1,11 @@
-import React from 'react'
-import Navbar_Admin from '../../components/Navbar_Admin';
+import React from "react";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 
 export default function Reportedearchivoyretenciondedocumentos() {
   return (
     <div>
-        <Navbar_Admin/>
-        <h1>REporte de archivo y retencion de documentos</h1>
-        
-        
-    
-        </div>
-  )
+      <MenuHamburguesa />
+      <h1>REporte de archivo y retencion de documentos</h1>
+    </div>
+  );
 }

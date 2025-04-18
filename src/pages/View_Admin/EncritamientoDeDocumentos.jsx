@@ -1,11 +1,12 @@
 import React from "react";
-import Navbar_Admin from "../../components/Navbar_Admin";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 import Footer from "../../components/Footer";
 import "../../styles/styles.css";
+
 export default function EncritamientoDeDocumentos() {
   return (
     <div>
-      <Navbar_Admin />
+      <MenuHamburguesa />
 
       <h1 className="tituloPrincipal"> Encritamiento De Documentos</h1>
 

@@ -1,90 +1,78 @@
 import React from "react";
-import Navbar_Admin from "../../components/Navbar_Admin";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 import Footer from "../../components/Footer";
 import Molda_Admin from "../../components/Molda_Admin";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../../styles/styles.css";
 
-
 export default function GestordeDocumentos() {
   return (
     <div>
-      <Navbar_Admin />
+      <MenuHamburguesa />
       <h2 className="tituloPrincipal">Gestor de documentos</h2>
 
+      <div style={filterContainerStyle}>
+        <input className="input" type="text" placeholder="Escribe aquí..." />
 
-        <div style={filterContainerStyle}>
+        <Molda_Admin
+          NombreBoton="Agregar Documento"
+          campos={CamposInputsDocumentos}
+          EstilosBoton={"botonVerde"}
+        />
+      </div>
 
-            <input
-              className="input"
-              type="text"
-              placeholder="Escribe aquí..."
-            />
+      <table className="tablaTodos">
+        <thead className="encabezadoTabla">
+          <tr>
+            <th>#</th>
+            <th>Nombre del Documento</th>
+            <th>Descripción</th>
+            <th>Categoría</th>
+            <th>Propietario</th>
+            <th>Fecha de Creación</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {documentos.map((doc, index) => (
+            <tr className="FinalTabla">
+              <td>{index + 1}</td>
+              <td>{doc.DocumentoNombre}</td>
+              <td>{doc.DocumentoDescripcion}</td>
+              <td>{doc.DocumentoCategoria}</td>
+              <td>{doc.DocumentoPropietario}</td>
+              <td>{doc.DocumentoFecha}</td>
+              <td>{doc.DocumentoEstado}</td>
+              <td>
+                <Molda_Admin
+                  NombreBoton="Eliminar"
+                  campos={CamposInputsEliminarDocumentos}
+                  EstilosBoton={"botonAzul"}
+                />
 
-          <Molda_Admin
-            NombreBoton="Agregar Documento"
-            campos={CamposInputsDocumentos}
-            EstilosBoton={"botonVerde"}
-          />
-        </div>
+                <Molda_Admin
+                  NombreBoton="Editar de documento"
+                  campos={CamposInputsDocumentos}
+                  EstilosBoton={"botonAzul"}
+                />
 
-    <table className="tablaTodos">
-          <thead className="encabezadoTabla" >
-            <tr >
-              <th>#</th>
-              <th>Nombre del Documento</th>
-              <th>Descripción</th>
-              <th>Categoría</th>
-              <th>Propietario</th>
-              <th>Fecha de Creación</th>
-              <th>Estado</th>
-              <th>Acciones</th>
+                <Molda_Admin
+                  NombreBoton="Visualizar"
+                  pdf
+                  EstilosBoton={"botonAzul"}
+                  Links={"/assets/Administración_de_cuentas_de_cobro.pdf"}
+                />
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {documentos.map((doc, index) => (
-              <tr className="FinalTabla">
-                <td>{index + 1}</td>
-                <td>{doc.DocumentoNombre}</td>
-                <td>{doc.DocumentoDescripcion}</td>
-                <td>{doc.DocumentoCategoria}</td>
-                <td>{doc.DocumentoPropietario}</td>
-                <td>{doc.DocumentoFecha}</td>
-                <td>{doc.DocumentoEstado}</td>
-                <td>
-                  <Molda_Admin
-                    NombreBoton="Eliminar"
-                    campos={CamposInputsEliminarDocumentos}
-                    EstilosBoton={"botonAzul"}
-                  />
-
-                  
-
-                  <Molda_Admin
-                    NombreBoton="Editar de documento"
-                    campos={CamposInputsDocumentos}
-                    EstilosBoton={"botonAzul"}
-                  />
-                
-                  <Molda_Admin
-                    NombreBoton="Visualizar"
-                    pdf
-                    EstilosBoton={"botonAzul"}
-                    Links={"/assets/Administración_de_cuentas_de_cobro.pdf"}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-          </table>
+          ))}
+        </tbody>
+      </table>
 
       <Footer />
     </div>
   );
 }
-
-
-
 
 const filterContainerStyle = {
   display: "flex",
@@ -92,12 +80,9 @@ const filterContainerStyle = {
   alignItems: "center",
   width: "100%",
   gap: "10px", // Espaciado entre el botón y el input
-  paddingRight:"10%",
-  paddingBottom:"10px"
+  paddingRight: "10%",
+  paddingBottom: "10px",
 };
-
-
-
 
 // CAMPOS
 const documentos = [
@@ -119,7 +104,6 @@ const documentos = [
     DocumentoFecha: "12/02/2024",
     DocumentoEstado: "Activo",
   },
-  
 ];
 
 const CamposInputsDocumentos = [

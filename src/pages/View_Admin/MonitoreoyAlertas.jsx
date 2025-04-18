@@ -1,22 +1,27 @@
 import React from "react";
-import Navbar_Admin from "../../components/Navbar_Admin";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 import Footer from "../../components/Footer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 export default function MonitoreoyAlertas() {
   return (
     <div>
-      <Navbar_Admin />
+      <MenuHamburguesa />
 
       <h1 className="text-center my-4">Monitoreo y alerta</h1>
       <div style={{ marginLeft: "10%" }}>
         <Row>
           <Col>
-            <label  htmlFor="Usuarios" style={Titulos}>
+            <label htmlFor="Usuarios" style={Titulos}>
               Usuarios
             </label>
             <br />
-            <input type="text" id="Usuarios" style={input} placeholder="Ej. Pollitogamin" />
+            <input
+              type="text"
+              id="Usuarios"
+              style={input}
+              placeholder="Ej. Pollitogamin"
+            />
           </Col>
           <Col>
             <label htmlFor="Fecha" style={Titulos}>

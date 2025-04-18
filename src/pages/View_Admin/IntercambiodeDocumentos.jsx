@@ -1,15 +1,13 @@
 import React from "react";
-import Navbar_Admin from "../../components/Navbar_Admin";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 import Footer from "../../components/Footer";
-import Table from "react-bootstrap/Table";
-import "bootstrap/dist/css/bootstrap.min.css"; // Asegúrate de importar Bootstrap
 import Molda_Admin from "../../components/Molda_Admin";
 import "../../styles/styles.css";
 
 export default function IntercambioDeDocumentos() {
   return (
     <div>
-      <Navbar_Admin />
+      <MenuHamburguesa />
       <div className="container-fluid">
         <h2 className="text-center my-4">Intercambio de Documentos</h2>
         <div className="d-flex flex-column align-items-center gap-2">
@@ -35,10 +33,11 @@ export default function IntercambioDeDocumentos() {
             href="/assets/Administración_de_cuentas_de_cobro.pdf"
             download
             className="botonVerde"
+            style={{ width: "10px", paddingTop: "10px", fontSize: "16px" }}
           >
             Descargar
           </a>
-          
+
           <Molda_Admin
             NombreBoton="Compartir"
             campos={CamposInputsIntercambioDeDocumentos}
@@ -51,7 +50,7 @@ export default function IntercambioDeDocumentos() {
         <div className="mt-4">
           <table className="tablaTodos">
             <thead className="encabezadoTabla">
-              <tr >
+              <tr>
                 <th>#</th>
                 <th>Nombre del Documento</th>
                 <th>Estado</th>
@@ -69,15 +68,20 @@ export default function IntercambioDeDocumentos() {
                   <td>{Usu.Contraseña}</td>
                   <td>{Usu.NumeroDeCedula}</td>
 
-                  <td >
-                    <div style={{paddingTop:"10px",paddingBottom:"12px"}}>
-                    <Molda_Admin NombreBoton="Visualizar" pdf     Links={"/assets/Diagrama_de_clases.pdf"} EstilosBoton={"botonAzul"}/>
+                  <td>
+                    <div style={{ paddingTop: "10px", paddingBottom: "12px" }}>
+                      <Molda_Admin
+                        NombreBoton="Visualizar"
+                        pdf
+                        Links={"/assets/Diagrama_de_clases.pdf"}
+                        EstilosBoton={"botonAzul"}
+                      />
                     </div>
                   </td>
                 </tr>
               ))}
             </tbody>
-            </table>
+          </table>
         </div>
 
         <Footer />
@@ -85,7 +89,6 @@ export default function IntercambioDeDocumentos() {
     </div>
   );
 }
-
 
 const UsuariosN = [
   {

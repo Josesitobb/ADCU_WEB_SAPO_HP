@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar_Admin from '../../components/Navbar_Admin';
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 
 export default function Reportedeflujosdetrabajo() {
   return (
     <div>
-        <Navbar_Admin/>
+      <MenuHamburguesa />
         <h1>Reportes de flujo de trabajo</h1>
         
         

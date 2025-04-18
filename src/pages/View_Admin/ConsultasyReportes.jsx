@@ -1,12 +1,13 @@
 import React from "react";
-import Navbar_Admin from "../../components/Navbar_Admin";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 import Footer from "../../components/Footer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "../../styles/styles.css";
 export default function ConsultasyReportes() {
   return (
     <div>
-      <Navbar_Admin />
+      <MenuHamburguesa />
 
       <h1 className="text-center my-4">Registros de Auditoría</h1>
       <div style={{ marginLeft: "10%" }}>
@@ -62,21 +63,9 @@ export default function ConsultasyReportes() {
       </div>
 
       <div>
-        <table
-          style={{
-            width: "70%",
-            borderCollapse: "collapse",
-            margin: "0 auto",
-          }}
-        >
-          <thead
-            style={{
-              backgroundColor: "#ecf4f4 ",
-              color: "#2c3e50",
-              borderCollapse: "collapse",
-            }}
-          >
-            <tr>
+        <table className="tablaTodos">
+          <thead>
+            <tr className="encabezadoTabla">
               <th style={{ padding: "10px" }}>#</th>
               <th style={thTable}>Fecha</th>
               <th style={thTable}>Usuario</th>
@@ -85,7 +74,7 @@ export default function ConsultasyReportes() {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr className="FinalTabla">
               <td>1</td>
               <td>2025-04-06</td>
               <td>jguerra</td>

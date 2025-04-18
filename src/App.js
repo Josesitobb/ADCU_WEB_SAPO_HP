@@ -31,14 +31,9 @@ import FirmadeDocumento from "./pages/View_Admin/FirmadeDocumentos";
 import EnviodeDocumentos from "./pages/View_Admin/EnviodeDocuemntos";
 import ValidaciondelaFirmas from "./pages/View_Admin/ValidaciondelaFirma";
 import AccesodeDocmentos from "./pages/View_Admin/AccesodeDocuemntos";
-import ConsultadeDocumentos from "./pages/View_Admin/ConsultadeDocuementos";
+import ConsultaDeDocumentos from "./pages/View_Admin/ConsultaDeDocumentos";
 import RechazodeDocumentos from "./pages/View_Admin/RechazodeDocuemntos";
-import BusquedadeDocumentos from "./pages/View_Admin/BusquedadeDocumento";
-import FiltrosdeBusqueda from "./pages/View_Admin/FiltrosdeBusqueda";
-import RecuperaciondeDocuemntos from "./pages/View_Admin/RecuperaciondeDocuemntos";
-import SincronizaciondeDocumentos from "./pages/View_Admin/SincronizaciondeDocumentos";
-import ServiciosenlaNube from "./pages/View_Admin/ServiciosenlaNube";
-import InteraccionconBasedeDatos from "./pages/View_Admin/InteraccionconBasedeDatos";
+
 
 // DIEGO
 
@@ -52,14 +47,13 @@ import Generaciondereportesdeactividaddedocumentos from "./pages/View_Admin/Gene
 import Reportedeflujosdetrabajo from "./pages/View_Admin/Reportedeflujosdetrabajo";
 import Reportedefirmaelectronica from "./pages/View_Admin/Reportedefirmaelectronica";
 import Reportedearchivoyretenciondedocumentos from "./pages/View_Admin/Reportedearchivoyretenciondedocumentos";
-import Creacionreportespersonalizados from "./pages/View_Admin/Creacionreportespersonalizados";
 import Reportedeseguridaddecontroldeacccesos from "./pages/View_Admin/Reportedeseguridaddecontroldeacccesos";
 
 
 const App = () => {
   return (
     <BrowserRouter>
-    {/* JOSE */}
+      {/* JOSE */}
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route path="/AdminHome" element={<Index_Admin />} />
@@ -77,55 +71,50 @@ const App = () => {
         <Route path="/GestionIndividual" element={<GestionDePermisosIndividual />} />
         <Route path="/RegistroDeActivdades" element={<RegistroDeActividades />} />
         <Route path="/Consultas" element={<ConsultasyReportes />} />
-        <Route path="/Monitereo" element={<MonitoreoyAlertas />} />
+        <Route path="/Monitoreo" element={<MonitoreoyAlertas />} />
         <Route path="/Encritamiento" element={<EncritamientoDeDocumentos />} />
         {/* Colaboracion */}
         <Route path="/ControlDeAceso" element={<ControlDeAceso />} />
-        <Route path="/GestionDePermisosIn" element={<GestorDePermisosIndividuales />} />
-        <Route path="/GestionDeVersiones" element={<GestionDeVersionyComentarios />} />
-        <Route path="/DocumentosProyectos" element={<Documentos/>} />
-     
-      {/* ----------------------------------------------------------------------------- */}
+        <Route path="/PermisoIndividuales" element={<GestorDePermisosIndividuales />} />
+        <Route path="/ControlDeCambios" element={<GestionDeVersionyComentarios />} />
+        {/* Documentacion proyecto */}
+        <Route path="/DocumentosProyectos" element={<Documentos />} />
 
-      {/*DAYANA  */}
-      {/* Flujo se trabajo */}
-      <Route path="/Aprobacion" element={<Aprobacion/>} />
-        <Route path="/Seguimiento" element={<Seguimiento/>} />
-        <Route path="/Notificaciones" element={<Notificaciones/>} />
+        {/* ----------------------------------------------------------------------------- */}
+
+        {/*DAYANA  */}
+        {/* Flujo se trabajo */}
+        <Route path="/Aprobacion" element={<Aprobacion />} />
+        <Route path="/Seguimiento" element={<Seguimiento />} />
+        <Route path="/Notificaciones" element={<Notificaciones />} />
         {/* Firma Electronica */}
-        <Route path="/FirmadedeDocumento" element={<FirmadeDocumento/>} />
-        <Route path="/EnviodeDocumento" element={<EnviodeDocumentos/>} />
-        <Route path="/ValidaciondelaFirma" element={<ValidaciondelaFirmas/>} />
-        <Route path="/AccesodeDocmentos" element={<AccesodeDocmentos/>} />
-        <Route panth="/ConsultadeDocuemnto" element={<ConsultadeDocumentos/>} />
-        <Route path="/RechazooModificacion" element={<RechazodeDocumentos/>} />
-      {/* Busqueda y colaboracion */}
-        <Route path="/BusquedadeDocumentos" element={<BusquedadeDocumentos/>} />
-        <Route path="/FiltrosdeBusqueda" element={<FiltrosdeBusqueda/>} /> 
-        <Route path="/RecuperaciondeDocuemntos" element={<RecuperaciondeDocuemntos/>} />
-         {/* Integracion con otras Herramientas */}
-        <Route path="/SincronizaciondeDocumentos" element={<SincronizaciondeDocumentos/>} /> 
-        <Route path="/ServiciosenlaNube" element={<ServiciosenlaNube/>} /> 
-        <Route path="/InteraccionconBasedeDatos" element={<InteraccionconBasedeDatos/>} /> 
-  {/* ----------------------------------------------------------------------------- */}
-  {/* DIEGO */}
-  {/* Almacenamiento en la nube */}
+        <Route path="/FirmaDeDocumento" element={<FirmadeDocumento />} />
+        <Route path="/EnviodeDocumento" element={<EnviodeDocumentos />} />
+        <Route path="/ValidaciondelaFirma" element={<ValidaciondelaFirmas />} />
+        <Route path="/AccesodeDocmentos" element={<AccesodeDocmentos />} />
+        <Route panth="/ConsultaDeDocumentos" element={<ConsultaDeDocumentos />} />
+        <Route path="/RechazoModificacion" element={<RechazodeDocumentos />} />
 
-  <Route path="/Copiasdeseguridadautomaticas" element={<Copiasdeseguridadautomaticas/>} />
-        <Route path="/Accesoremotoadocumentos" element={<Accesoremotoadocumentos/>} />
-        <Route path="/Sicronizacionentiemporeal" element={<Sicronizacionentiemporeal/>} />
+        <Route path="/ConsultaDeDocumentos" element={<ConsultaDeDocumentos />} />
+
+        {/* ----------------------------------------------------------------------------- */}
+        {/* DIEGO */}
+        {/* Almacenamiento en la nube */}
+        <Route path="/Backups" element={<Copiasdeseguridadautomaticas />} />
+        <Route path="//DocumentosRemotos" element={<Accesoremotoadocumentos />} />
+        <Route path="/Sincronizacion" element={<Sicronizacionentiemporeal />} />
         {/* Archivo y Retencion */}
-        <Route path="/PoliticasretenciondeDocumentos" element={<PoliticasretenciondeDocumentos/>} />
-        <Route path="/ArchivoAutomaticoseguncriterio" element={<ArchivoAutomaticoseguncriterio/>} />
-        <Route path="/Eliminacionseguradedocumentosobsoletos" element={<Eliminacionseguradedocumentosobsoletos/>} />
+        <Route path="/PoliticasretenciondeDocumentos" element={<PoliticasretenciondeDocumentos />} />
+        <Route path="/ArchivoAutomaticoseguncriterio" element={<ArchivoAutomaticoseguncriterio />} />
+        <Route path="/Eliminacionseguradedocumentosobsoletos" element={<Eliminacionseguradedocumentosobsoletos />} />
         {/* Reportes */}
-        <Route path="/Generaciondereportesdeactividaddedocumentos" element={<Generaciondereportesdeactividaddedocumentos/>} />
-        <Route path="/Reportedeflujosdetrabajo" element={<Reportedeflujosdetrabajo/>} />
-        <Route path="/Reportedefirmaelectronica" element={<Reportedefirmaelectronica/>} />
-        <Route path="/Reportedeseguridaddecontroldeacccesos" element={<Reportedeseguridaddecontroldeacccesos/>} />
-        <Route path="/Reportedearchivoyretenciondedocumentos" element={<Reportedearchivoyretenciondedocumentos/>} />
-        <Route path="/Creacionreportespersonalizados" element={<Creacionreportespersonalizados/>} />
-        </Routes>
+        <Route path="/Generaciondereportesdeactividaddedocumentos" element={<Generaciondereportesdeactividaddedocumentos />} />
+        <Route path="/Reportedeflujosdetrabajo" element={<Reportedeflujosdetrabajo />} />
+        <Route path="/Reportedefirmaelectronica" element={<Reportedefirmaelectronica />} />
+        <Route path="/Reportedeseguridaddecontroldeacccesos" element={<Reportedeseguridaddecontroldeacccesos />} />
+        <Route path="/Reportedearchivoyretenciondedocumentos" element={<Reportedearchivoyretenciondedocumentos />} />
+
+      </Routes>
     </BrowserRouter>
 
 

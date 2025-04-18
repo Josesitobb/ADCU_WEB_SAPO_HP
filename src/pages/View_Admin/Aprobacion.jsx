@@ -1,7 +1,10 @@
-import React from 'react'
-
+import React from "react";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 export default function Aprobacion() {
   return (
-    <div>Aprobacion</div>
-  )
+    <div>
+      <MenuHamburguesa />
+      Aprobacion
+    </div>
+  );
 }

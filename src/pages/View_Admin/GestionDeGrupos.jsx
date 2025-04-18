@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar_Admin from "../../components/Navbar_Admin";
 import Footer from "../../components/Footer";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,19 +7,18 @@ import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Molda_Admin from "../../components/Molda_Admin";
 import "../../styles/styles.css";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 
 export default function GestionDeGrupos() {
   return (
     <>
       <div>
-        <Navbar_Admin />
+        <MenuHamburguesa />
         <h1 className="tituloPrincipal">Gestion de grupos</h1>
         <Container>
           <Row>
             <Col>
-      
               <label htmlFor="" className="">
-
                 <h3>Nombre de grupo</h3>
               </label>
             </Col>
@@ -82,12 +80,19 @@ export default function GestionDeGrupos() {
           </Row>
         </Container>
         <h1 className="text-center my-4">Grupos Creados</h1>
-        <div style={{marginLeft:"70%",marginBottom:"10px"}}>
-
+        <div style={{ marginLeft: "70%", marginBottom: "10px" }}>
           {/* AGREGAR USUARIOS */}
-          <Molda_Admin NombreBoton="Agregar Usuarios" campos={AgregarUsuario} EstilosBoton={"botonVerde"} />
+          <Molda_Admin
+            NombreBoton="Agregar Usuarios"
+            campos={AgregarUsuario}
+            EstilosBoton={"botonVerde"}
+          />
           {/* QUITAR USUARIOS */}
-          <Molda_Admin NombreBoton="Remover Usuarios" campos={AgregarUsuario} EstilosBoton={"botonVerde"}  />
+          <Molda_Admin
+            NombreBoton="Remover Usuarios"
+            campos={AgregarUsuario}
+            EstilosBoton={"botonVerde"}
+          />
         </div>
 
         <table className="tablaTodos">

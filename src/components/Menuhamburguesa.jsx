@@ -1,444 +1,337 @@
 import React, { useState } from "react";
-import {
-  Navbar,
-  Nav,
-  Button,
-  Offcanvas,
-  ListGroup,
-  Collapse,
-} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Lateral_Nombres from "./Lateral_Nombres";
+import "../styles/Menuhamburguesa.css";
 
 export default function MenuHamburguesa() {
-  const [show, setShow] = useState(false);
-  const [openMenus, setOpenMenus] = useState({}); // Estado para rastrear qué menús están abiertos
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  // Función para alternar la apertura/cierre de submenús
-  const toggleMenu = (menu) => {
-    setOpenMenus((prev) => ({
-      ...prev,
-      [menu]: !prev[menu],
-    }));
+  // Usuarios
+  const [menuUsuarios, setMenuUsuarios] = useState(false);
+  const AparecerMenuUsuarios = () => {
+    setMenuUsuarios(!menuUsuarios);
   };
 
-  const icon_Lateral = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-chevron-compact-down"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"
-      />
-    </svg>
-  );
+  //Gestion documental
+
+  const [menuGestionDocumental, setGestionDocumental] = useState(false);
+  const AparecermenuGestionDocumental = () => {
+    setGestionDocumental(!menuGestionDocumental);
+  };
+
+  // Control de seguridad
+
+  const [menuSeguridad, setSeguridad] = useState(false);
+  const AparecermenuSeguridad = () => {
+    setSeguridad(!menuSeguridad);
+  };
+
+  // Colaboracion
+
+  const [menuColaboracion, setColaboracion] = useState(false);
+  const AparecermenuColaboracion = () => {
+    setColaboracion(!menuColaboracion);
+  };
+
+  // Flujo de trabajo
+
+  const [menuFlujo, setFlujo] = useState(false);
+  const AparecermenuFlujo = () => {
+    setFlujo(!menuFlujo);
+  };
+
+  // Firma electronica
+  const [menuFirma, setFirma] = useState(false);
+  const AparecermenuFirma = () => {
+    setFirma(!menuFirma);
+  };
+  // Almacenamiento en la nube
+  const [menuNube, setNube] = useState(false);
+  const AparecermenuNube = () => {
+    setNube(!menuNube);
+  };
+
+  //  Archivo en retencion
+  const [menuRetencion, setRetencion] = useState(false);
+  const AparecermenuRetencion = () => {
+    setRetencion(!menuRetencion);
+  };
+
+  // Reportes
+  const [menuReportes, setReportes] = useState(false);
+  const AparecermenuReportes = () => {
+    setReportes(!menuReportes);
+  };
 
   return (
-    <>
-      <Navbar expand="lg" className="px-3">
-      <Button variant="light" onClick={handleShow} className="me-3">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        className="bi bi-chevron-compact-down"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fillRule="evenodd"
-          d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"
-        />
-      </svg>
-    </Button>
+    <nav>
+      <ul>
+        <li>
+          <a href="#" className="logo">
+            <img src="../favicon.ico" alt="Logo" />
+            <span className="nav-item">ADCU</span>
+          </a>
+        </li>
+        {/* Usuarios */}
+        <li>
+          <a href="#" id="sapo" onClick={AparecerMenuUsuarios}>
+            <i className="fas fa-user"></i>
+            <span className="nav-item">Usuarios</span>
+          </a>
+        </li>
 
-        <Navbar.Brand as={Link} to="/"></Navbar.Brand>
-        <Nav className="ms-auto"></Nav>
-      </Navbar>
+        <li className={menuUsuarios ? "sub-activa" : "sub"}>
+          <Link to={"/AdminUsuarios"}>
+            <span className="submenu">Creacion de usuarios</span>
+          </Link>
+        </li>
+        <li className={menuUsuarios ? "sub-activa" : "sub"}>
+          <Link to={"/AdminUsuarioDeTalles"}>
+            <span className="submenu">Usuarios detalles</span>
+          </Link>
+        </li>
 
-      <Offcanvas
-        show={show}
-        onHide={handleClose}
-        placement="start"
-        backdrop={false}
-      >
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>ADCU</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          {/* ----------------------------------------------------------------- */}
-          {/* USUARIOS  */}
-          <ListGroup.Item action onClick={() => toggleMenu("usuarios")}>
-            Usuarios {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["usuarios"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Crear usuarios"
-                  Link="/AdminUsuarios"
-                />
-              </ListGroup>
+        {/* Gestion documental */}
+        <li>
+          <a href="#" onClick={AparecermenuGestionDocumental}>
+            <i className="fas fa-file"></i>
+            <span className="nav-item">Gestion documental</span>
+          </a>
+        </li>
+        <li className={menuGestionDocumental ? "sub-activa" : "sub"}>
+          <Link to={"/GestorDeDocumentos"}>
+            <span className="submenu">Gestor de documentos</span>
+          </Link>
+        </li>
+        <li className={menuGestionDocumental ? "sub-activa" : "sub"}>
+          <Link to={"/RecuperacionDeArchivos"}>
+            <span className="submenu">Recuperacion de archivos</span>
+          </Link>
+        </li>
+        <li className={menuGestionDocumental ? "sub-activa" : "sub"}>
+          <Link to={"/IntercambioDeDocumentos"}>
+            <span className="submenu">Intercambio de documentos</span>
+          </Link>
+        </li>
 
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Usuarios detalles"
-                  Link="/AdminUsuarioDeTalles"
-                />
-              </ListGroup>
-            </div>
-          </Collapse>
-          <hr />
+        {/* Control de seguridad */}
+        <a href="#" onClick={AparecermenuSeguridad}>
+          <i className="fas fa-shield-halved"></i>
+          <span className="nav-item">Control de Seguridad</span>
+        </a>
+        <li className={menuSeguridad ? "sub-activa" : "sub"}>
+          <Link to={"/GestionDeGrupos"}>
+            <span className="submenu">Gestion de grupos</span>
+          </Link>
+        </li>
+        <li className={menuSeguridad ? "sub-activa" : "sub"}>
+          <Link to={"/GestionIndividual"}>
+            <span className="submenu">Permisos Individuales</span>
+          </Link>
+        </li>
 
-          {/* ----------------------------------------------------------------- */}
-          {/* Gestion documental  */}
+        <li className={menuSeguridad ? "sub-activa" : "sub"}>
+          <Link to={"/RegistroDeActivdades"}>
+            <span className="submenu">Registro de actividades</span>
+          </Link>
+        </li>
 
-          <ListGroup.Item
-            action
-            onClick={() => toggleMenu("GestionDocumental")}
-          >
-            Gestion documental {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["GestionDocumental"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Gestor de documentos"
-                  Link="/GestorDeDocumentos"
-                />
-                <Lateral_Nombres
-                  Nombre="Recuperacion de archivos"
-                  Link="/RecuperacionDeArchivos"
-                />
-                <Lateral_Nombres
-                  Nombre="Intercambio de documentos"
-                  Link="/IntercambioDeDocumentos"
-                />
-              </ListGroup>
-            </div>
-          </Collapse>
-          <hr />
-          {/* ----------------------------------------------------------------- */}
-          {/* Control de Accesos y Seguridad  */}
+        <li className={menuSeguridad ? "sub-activa" : "sub"}>
+          <Link to={"/Consultas"}>
+            <span className="submenu"> Consultas y reportes</span>
+          </Link>
+        </li>
+        <li className={menuSeguridad ? "sub-activa" : "sub"}>
+          <Link to={"/Monitoreo"}>
+            <span className="submenu"> Monitoreo y Alertas</span>
+          </Link>
+        </li>
+        <li className={menuSeguridad ? "sub-activa" : "sub"}>
+          <Link to={"/Encritamiento"}>
+            <span className="submenu"> Encriptamiento</span>
+          </Link>
+        </li>
+        {/* Colaboracion  */}
+        <li>
+          <a href="#" onClick={AparecermenuColaboracion}>
+            <i className="fas fa-comment"></i>
+            <span className="nav-item">Colaboracion</span>
+          </a>
+        </li>
+        <li className={menuColaboracion ? "sub-activa" : "sub"}>
+          <Link to={"/ControlDeAceso"}>
+            <span className="submenu"> Control de Acceso</span>
+          </Link>
+        </li>
+        <li className={menuColaboracion ? "sub-activa" : "sub"}>
+          <Link to={"/PermisoIndividuales"}>
+            <span className="submenu"> Permisos individual</span>
+          </Link>
+        </li>
+        <li className={menuColaboracion ? "sub-activa" : "sub"}>
+          <Link to={"/ControlDeCambios"}>
+            <span className="submenu"> Control de Cambios</span>
+          </Link>
+        </li>
+        {/* Flujo de trabajo */}
+        <li>
+          <a href="#" onClick={AparecermenuFlujo}>
+            <i className="fas fa-arrow-right"></i>
+            <span className="nav-item">Flujo de trabajo</span>
+          </a>
+        </li>
+        <li className={menuFlujo ? "sub-activa" : "sub"}>
+          <Link to={"/Aprobacion"}>
+            <span className="submenu"> Aprobacion</span>
+          </Link>
+        </li>
+        <li className={menuFlujo ? "sub-activa" : "sub"}>
+          <Link to={"/Seguimiento"}>
+            <span className="submenu"> Seguimiento</span>
+          </Link>
+        </li>
+        <li className={menuFlujo ? "sub-activa" : "sub"}>
+          <Link to={"/Notificaciones"}>
+            <span className="submenu"> Notificaciones</span>
+          </Link>
+        </li>
+        <li className={menuFlujo ? "sub-activa" : "sub"}>
+          <Link to={"/RechazoModificacion"}>
+            <span className="submenu"> Rechazo o Modificacion</span>
+          </Link>
+        </li>
+        {/* Firma electronica */}
+        <li>
+          <a href="#" onClick={AparecermenuFirma}>
+            <i className="fas fa-pen"></i>
+            <span className="nav-item">Firma</span>
+          </a>
+        </li>
+        <li className={menuFirma ? "sub-activa" : "sub"}>
+          <Link to={"/FirmaDeDocumento"}>
+            <span className="submenu"> Firma documento</span>
+          </Link>
+        </li>
+        <li className={menuFirma ? "sub-activa" : "sub"}>
+          <Link to={"/EnviodeDocumento"}>
+            <span className="submenu"> Enviar documento</span>
+          </Link>
+        </li>
+        <li className={menuFirma ? "sub-activa" : "sub"}>
+          <Link to={"/ValidaciondelaFirma"}>
+            <span className="submenu"> Validar firma</span>
+          </Link>
+        </li>
+        <li className={menuFirma ? "sub-activa" : "sub"}>
+          <Link to={"/AccesodeDocmentos"}>
+            <span className="submenu"> D Acceso de Documentos</span>
+          </Link>
+        </li>
+        <li className={menuFirma ? "sub-activa" : "sub"}>
+          <Link to={"/ConsultaDeDocumentos"}>
+            <span className="submenu">D Consulta de Documentos</span>
+          </Link>
+        </li>
+        <li className={menuFirma ? "sub-activa" : "sub"}>
+          <Link to={"/RechazoModificacion"}>
+            <span className="submenu">D Rechazo de Documentos </span>
+          </Link>
+        </li>
+        {/* Alcenamineto en la nube */}
+        <li>
+          <a href="#" onClick={AparecermenuNube}>
+            <i className="fas fa-cloud"></i>
+            <span className="nav-item">Gestor Cloud</span>
+          </a>
+        </li>
+        <li className={menuNube ? "sub-activa" : "sub"}>
+          <Link to={"/Backups"}>
+            <span className="submenu">Backups </span>
+          </Link>
+        </li>
+        <li className={menuNube ? "sub-activa" : "sub"}>
+          <Link to={"/DocumentosRemotos"}>
+            <span className="submenu">Documentos Remotos </span>
+          </Link>
+        </li>
+        <li className={menuNube ? "sub-activa" : "sub"}>
+          <Link to={"/Sincronizacion"}>
+            <span className="submenu">Sincronización</span>
+          </Link>
+        </li>
+        {/* Archivo en retencion */}
+        <li>
+          <a href="#" onClick={AparecermenuRetencion}>
+            <i className="fas  fa-truck"></i>
+            <span className="nav-item">Retención</span>
+          </a>
+        </li>
+        <li className={menuRetencion ? "sub-activa" : "sub"}>
+          <Link to={"/PoliticasretenciondeDocumentos"}>
+            <span className="submenu">Políticas de Retención</span>
+          </Link>
+        </li>
+        <li className={menuRetencion ? "sub-activa" : "sub"}>
+          <Link to={"/ArchivoAutomaticoseguncriterio"}>
+            <span className="submenu">Autoarchivo</span>
+          </Link>
+        </li>
+        <li className={menuRetencion ? "sub-activa" : "sub"}>
+          <Link to={"/Eliminacionseguradedocumentosobsoletos"}>
+            <span className="submenu"> Eliminación Segura</span>
+          </Link>
+        </li>
+        {/* Reportes */}
+        <li>
+          <a href="#" onClick={AparecermenuReportes}>
+            <i className="fas   fa-note-sticky"></i>
+            <span className="nav-item">Reportes</span>
+          </a>
+        </li>
 
-          <ListGroup.Item
-            action
-            onClick={() => toggleMenu("ControldeAccesosySeguridad")}
-          >
-            Control de Accesos y Seguridad {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["ControldeAccesosySeguridad"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Gestion de grupos"
-                  Link="/GestionDeGrupos"
-                />
-              </ListGroup>
+        <li className={menuReportes ? "sub-activa" : "sub"}>
+          <Link to={"/Generaciondereportesdeactividaddedocumentos"}>
+            <span className="submenu"> Reportes de Actividad</span>
+          </Link>
+        </li>
 
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Gestion de permisos individual"
-                  Link="/GestionIndividual"
-                />
-              </ListGroup>
+        <li className={menuReportes ? "sub-activa" : "sub"}>
+          <Link to={"/Reportedeflujosdetrabajo"}>
+            <span className="submenu"> Reporte de flujos de trabajo</span>
+          </Link>
+        </li>
 
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Registro de actividades"
-                  Link="/RegistroDeActivdades"
-                />
-              </ListGroup>
+        <li className={menuReportes ? "sub-activa" : "sub"}>
+          <Link to={"/Reportedefirmaelectronica"}>
+            <span className="submenu"> Reporte de firma electronica</span>
+          </Link>
+        </li>
 
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Consultas y reportes"
-                  Link="/Consultas"
-                />
-              </ListGroup>
+        <li className={menuReportes ? "sub-activa" : "sub"}>
+          <Link to={"/Reportedeseguridaddecontroldeacccesos"}>
+            <span className="submenu"> Reporte de Accesos</span>
+          </Link>
+        </li>
 
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Monitoreo y Alertas"
-                  Link="/Monitereo"
-                />
-              </ListGroup>
+        <li className={menuReportes ? "sub-activa" : "sub"}>
+          <Link to={"/Reportedearchivoyretenciondedocumentos"}>
+            <span className="submenu"> Reporte Retención Documental</span>
+          </Link>
+        </li>
+        {/* Documentacion proyecto */}
+        <li>
+          <Link to={"/DocumentosProyectos"}>
+            <i className="fas fa-hot-tub-person"></i>
+            <span className="nav-item">Documentacion proyecto</span>
+          </Link>
+        </li>
 
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Encriptamiento de documentos"
-                  Link="/Encritamiento"
-                />
-              </ListGroup>
-            </div>
-          </Collapse>
-          <hr />
-
-          {/* ----------------------------------------------------------------- */}
-          {/* Colaboracion */}
-
-          <ListGroup.Item action onClick={() => toggleMenu("Colaboracion")}>
-            Colaboracion {icon_Lateral}
-          </ListGroup.Item>
-
-          <Collapse in={openMenus["Colaboracion"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Control de Acceso"
-                  Link="/ControlDeAceso"
-                />
-              </ListGroup>
-
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Gestion de permisos individual"
-                  Link="/GestionDePermisosIn"
-                />
-              </ListGroup>
-
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Gestión de Versiones y Comentarios"
-                  Link="/GestionDeVersiones"
-                />
-              </ListGroup>
-            </div>
-          </Collapse>
-          {/* ----------------------------------------------------------------- */}
-
-
-        {/*------------------------------------------------------------------------------------  */}
-      {/* Flujo de trabajo   */}
-       
-      <hr />
-          <ListGroup.Item
-            action
-            onClick={() => toggleMenu("Flujodetrabajo")}
-          >
-            Flujodetrabajo {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["Flujodetrabajo"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres Nombre="Aprobacion" Link="/Aprobacion" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="Seguimiento" Link="/Seguimiento" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="Notificaciones" Link= "Notificaciones" 
-                
-                />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="Rechazo o Modificacion" Link= "/RechazoyModificacion" />
-              </ListGroup>
-            </div>
-          </Collapse> 
-           <hr />
-          {/* ----------------------------------------------------------------- */}
-
-         {/* FIRMA ELECTRONICA  */}
-      
-          <ListGroup.Item
-            action
-            onClick={() => toggleMenu("FirmaElectrónica")}
-          >
-           Firma Electronica {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["FirmaElectronica"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres Nombre="FirmadeDocumento" Link="/FirmadedeDocumentos" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="EnviodeDocumento" Link="/EnviodeDocuemto" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="ValidaciondelaFirma" Link= "ValidaciondelaFirma " 
-                />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="AccesodeDocmentos" Link= "/AccesoaDocmentos" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="ConsultadeDocuemnto" Link= "/ConsultadeDocuemntos" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="RechazodeDocumentos" Link= "/RechazodeDocuemntos" />
-              </ListGroup>
-            </div>
-          </Collapse>
-          <hr />
-          {/* ----------------------------------------------------------------- */}
-          {/* Busqueda y Colaboracion */}
-          <ListGroup.Item
-            action
-            onClick={() => toggleMenu("BusquedayColaboracion")}
-          >
-           Busqueda y Colaboracion {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["BusquedayColaboracion"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres Nombre="BusquedadeDocumnetos" Link="/BusquedadeDocumnetos" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="FiltrosdeBusqueda" Link="/FiltrosdeBusqueda" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="RecuperaciondeDocuemntos" Link= "RecuperaciondeDocuemntos " 
-                />
-              </ListGroup>
-             
-            </div>
-          </Collapse>
-          <hr />
-          {/* ----------------------------------------------------------------- */}
-          {/* Integracion con otras Herramientas */}
-          <ListGroup.Item
-            action
-            onClick={() => toggleMenu("IntegraciónconOtrasHerramientas")}
-          >
-           Integración con Otras Herramientas {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["IntegraciónconOtrasHerramientas"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres Nombre="SincronizaciondeDocumentos" Link="/SincronizaciondeDocumentos" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="ServiciosenlaNube" Link="/ServiciosenlaNube" />
-              </ListGroup>
-              <ListGroup>
-                <Lateral_Nombres Nombre="InteraccionconBasedeDatos" Link= "/InteraccionconBasedeDatos " 
-                />
-              </ListGroup>
-             
-            </div>
-          </Collapse>
-          <hr />
-
-          {/*------------------------------------------------------------------------------  */}
-
-
-          {/* DIEGO */}
-          
-          <ListGroup.Item
-            action
-            onClick={() => toggleMenu("AlmacenamientoenlaNube")}
-          >
-            Almacenamiento en la Nube {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["AlmacenamientoenlaNube"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Copias de seguridad automaticas"
-                  Link="/Copiasdeseguridadautomaticas"
-                />
-                <Lateral_Nombres
-                  Nombre="Acceso remoto a documentos"
-                  Link="/Accesoremotoadocumentos"
-                />
-                <Lateral_Nombres
-                  Nombre="Sicronizacion en tiempo real"
-                  Link="/Sicronizacionentiemporeal"
-                />
-              </ListGroup>
-            </div>
-          </Collapse>
-          <hr />
-          <ListGroup.Item
-            action
-            onClick={() => toggleMenu("ArchivoyRetención")}
-          >
-            Archivo y Retención {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["ArchivoyRetención"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Politicas de retencion de Documentos"
-                  Link="/PoliticasretenciondeDocumentos"
-                />
-                <Lateral_Nombres
-                  Nombre="Archivo Automatico segun criterio"
-                  Link="/ArchivoAutomaticoseguncriterio"
-                />
-                <Lateral_Nombres
-                  Nombre="Eliminacion segura de documentos obsoletos"
-                  Link="/Eliminacionseguradedocumentosobsoletos"
-                />
-              </ListGroup>
-            </div>
-          </Collapse>
-          <hr />
-          <ListGroup.Item
-            action
-            onClick={() => toggleMenu("Reportes")}
-          >
-            Reportes {icon_Lateral}
-          </ListGroup.Item>
-          <Collapse in={openMenus["Reportes"]}>
-            <div className="ms-3">
-              <ListGroup>
-                <Lateral_Nombres
-                  Nombre="Generacion de reportes de actividad de documentos"
-                  Link="/Generaciondereportesdeactividaddedocumentos"
-                />
-                <Lateral_Nombres
-                  Nombre="Reporte de flujos de trabajo"
-                  Link="/Reportedeflujosdetrabajo"
-                />
-                <Lateral_Nombres
-                  Nombre="Reporte de firma electronica"
-                  Link="/Reportedefirmaelectronica"
-                />
-                <Lateral_Nombres
-                  Nombre="Reporte de seguridad de control de acccesos"
-                  Link="/Reportedeseguridaddecontroldeacccesos"
-                />
-                <Lateral_Nombres
-                  Nombre="Reporte de archivo y retencion de documentos"
-                  Link="/Reportedearchivoyretenciondedocumentos"
-                />
-                <Lateral_Nombres
-                  Nombre="Creacion de reportes personalizados"
-                  Link="/Creacionreportespersonalizados"
-                />
-              </ListGroup>
-            </div>
-          </Collapse>
-
-
-          {/* PDF */}
-          <Lateral_Nombres Nombre="Documentos proyecto" Link="/DocumentosProyectos" />
-        </Offcanvas.Body>
-      </Offcanvas>
-
-      {/* <DropdownButton
-        as={ButtonGroup}
-        id="dropdown-button-drop-end"
-        drop="end" // Se abre a la derecha
-        variant="secondary"
-        title="USUARIOS"
-      >
-        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
-        <Dropdown.Divider />
-        <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
-      </DropdownButton> */}
-    </>
+        <li>
+          <Link to={"/"}>
+            <a href="#" className="logout">
+              <i className="fas fa-sign-out-alt"></i>
+              <span className="nav-item">Log out</span>
+            </a>
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 }

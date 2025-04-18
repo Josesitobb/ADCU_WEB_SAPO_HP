@@ -7,10 +7,11 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../../styles/styles.css";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 export default function GestionDePermisosIndividual() {
   return (
     <div>
-      <Navbar_Admin />
+      <MenuHamburguesa />
       <h1 className="text-center my-4">Gestion De Permisos Individual</h1>
       <Container>
         <Row>
@@ -18,7 +19,7 @@ export default function GestionDePermisosIndividual() {
           <p className="subtitulos">Buscar Usuarios</p>
         </Row>
         <Row>
-          <select name="" id="" className="input" style={{width:"100%"}} >
+          <select name="" id="" className="input" style={{ width: "100%" }}>
             <option value="" disabled>
               Seleccione un usuario
             </option>
@@ -30,8 +31,7 @@ export default function GestionDePermisosIndividual() {
 
         <Row>
           <p className="subtitulos"> Permisos actuales del usuario</p>
-          <ul
-          >
+          <ul>
             <li className="Listas">Ver Documentos (heredado del grupo)</li>
             <li className="Listas">Editar Documentos (individual)</li>
           </ul>
@@ -67,8 +67,8 @@ export default function GestionDePermisosIndividual() {
         </Row>
 
         <Button style={{ marginTop: "20px" }} className="botonAzul">
-          {" "}
-          Guardar cambios{" "}
+          
+          Guardar cambios
         </Button>
 
         <p className="subtitulos">Restablecer Permisos</p>
@@ -79,9 +79,4 @@ export default function GestionDePermisosIndividual() {
   );
 }
 
-const Select = {
-  borderRadius: "10px",
-  height: "45px",
-  fontFamily: "Poppins, sans-serif",
-  fontSize: "17px",
-};
+

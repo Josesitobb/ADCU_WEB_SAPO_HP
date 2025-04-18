@@ -1,14 +1,11 @@
-import React from 'react'
-import Navbar_Admin from '../../components/Navbar_Admin';
+import React from "react";
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 
 export default function Generaciondereportesdeactividaddedocumentos() {
   return (
     <div>
-        <Navbar_Admin/>
-        <h1>Gestion de reportes de actividad de Documentos</h1>
-        
-        
-    
-        </div>
-  )
+      <MenuHamburguesa />
+      <h1>Gestion de reportes de actividad de Documentos</h1>
+    </div>
+  );
 }

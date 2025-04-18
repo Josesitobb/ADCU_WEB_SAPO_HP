@@ -1,11 +1,11 @@
 import React from "react";
 import MenuHamburguesa from "../../components/Menuhamburguesa";
 
-export default function Sincronizacionentiemporeal() {
+export default function ConsultaDeDocumentos() {
   return (
     <div>
       <MenuHamburguesa />
-      <h1>Sincronizacion en tiempo real</h1>
+      otravista
     </div>
   );
 }

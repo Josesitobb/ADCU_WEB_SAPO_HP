@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar_Admin from '../../components/Navbar_Admin';
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Footer from '../../components/Footer';
@@ -37,7 +37,7 @@ export default function Copiasdeseguridadautomaticas() {
   };
   return (
     <div>
-      <Navbar_Admin />
+      <MenuHamburguesa />
       <h1 className="text-center">Copias de seguridad automáticas</h1>
 
       <Table striped bordered hover>

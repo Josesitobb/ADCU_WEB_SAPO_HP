@@ -1,16 +1,16 @@
-import React from 'react';
-import Navbar_Admin from '../../components/Navbar_Admin';
+import React from "react";
+import Navbar_Admin from "../../components/Navbar_Admin";
 // import Footer from '../../components/Footer';
 // import Table from 'react-bootstrap/Table';
 // import Molda_Admin from '../../components/Molda_Admin';
 // import { NavbarBrand } from 'react-bootstrap';
+import MenuHamburguesa from "../../components/Menuhamburguesa";
 
-export default function Flujosdetrabajo () {
-    return(
-    
+export default function Flujosdetrabajo() {
+  return (
     <div>
-        <Navbar_Admin/>
-        <h1 classname="text-center my-4">Flujos de Trabajo </h1>
+      <MenuHamburguesa />
+      <h1 classname="text-center my-4">Flujos de Trabajo </h1>
     </div>
-    )
+  );
 }
